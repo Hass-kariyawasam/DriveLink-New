@@ -14,15 +14,6 @@ const Layout = ({ children }) => {
     </div>
   );
 };
-const toggleTheme = () => {
-  document.body.classList.toggle('light-mode');
-};
-
-// Button එක update කරන්න
-<button id="theme-toggle" onClick={toggleTheme}>
-    <i className="fas fa-moon"></i>
-    <span>Dark Mode</span>
-</button>
 
 export default Layout;
 
