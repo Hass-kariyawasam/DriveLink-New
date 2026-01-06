@@ -1,0 +1,6 @@
+{
+  "appId": "com.drivelink.app",
+  "appName": "DriveLink",
+  "webDir": "dist",  <-- මෙන්න මේක "dist" කියලා තියෙන්න ඕන
+  "bundledWebRuntime": false
+}

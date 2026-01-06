@@ -1,0 +1,141 @@
+/* src/css/livetracking.css */
+
+/* Main Wrapper - Takes full available space */
+.tracking-wrapper {
+    position: relative;
+    width: 100%;
+    height: 80vh;
+    min-height: 500px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    background: #1e1e2d;
+}
+
+#live-map {
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+/* Controls Positions */
+.location-capsule {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 500;
+    background: rgba(30, 30, 45, 0.85);
+    padding: 8px 15px;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: white;
+    font-size: 13px;
+    font-weight: 600;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.location-capsule i { color: #f64e60; }
+
+.map-controls-group {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 500;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Badges */
+.status-badge {
+    padding: 0 12px;
+    height: 45px;
+    border-radius: 12px;
+    font-weight: 800;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: white;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    backdrop-filter: blur(5px);
+}
+
+.status-badge.online {
+    background: rgba(40, 167, 69, 0.9);
+    border: 2px solid #28a745;
+}
+
+.status-badge.offline {
+    background: rgba(246, 78, 96, 0.9);
+    border: 2px solid #f64e60;
+}
+
+.blink-dot {
+    width: 8px; height: 8px; background-color: white; border-radius: 50%; animation: blink 1.5s infinite;
+}
+
+.sat-badge-bars {
+    background: rgba(30, 30, 45, 0.85);
+    height: 45px;
+    padding: 0 15px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.sat-count { color: white; font-weight: 700; font-size: 14px; }
+
+.signal-bars-icon { display: flex; align-items: flex-end; gap: 3px; height: 20px; }
+.signal-bars-icon .bar { width: 4px; background: rgba(255, 255, 255, 0.2); border-radius: 2px; }
+.signal-bars-icon .bar.active { background: #1bc5bd; box-shadow: 0 0 5px #1bc5bd; }
+
+.control-btn {
+    width: 45px; height: 45px; background: rgba(30, 30, 45, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 12px;
+    color: white; font-size: 20px; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.speed-capsule-modern {
+    position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%);
+    z-index: 500; background: rgba(30, 30, 45, 0.95);
+    border: 2px solid #3699ff; padding: 10px 30px; border-radius: 50px;
+    display: flex; align-items: baseline; gap: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+}
+
+.speed-val { font-size: 36px; font-weight: 800; color: white; font-family: 'Segoe UI', monospace; }
+.speed-unit { font-size: 14px; color: #3699ff; font-weight: 700; }
+
+@keyframes blink { 50% { opacity: 0; } }
+
+/* =========================================
+   MOBILE FIX: FULL WIDTH WIDGET
+   ========================================= */
+@media (max-width: 768px) {
+    /* Make map wrapper wider on mobile to fill 'widget' area */
+    .tracking-wrapper {
+        width: 100%;
+        height: 75vh;
+        margin: 0; 
+        border-radius: 15px; /* Rounded corners back */
+    }
+
+    /* Adjust controls spacing */
+    .location-capsule { top: 15px; left: 15px; font-size: 11px; padding: 6px 12px; }
+    .map-controls-group { 
+        top: 60px; right: 15px; 
+        flex-direction: column; align-items: flex-end; gap: 8px; 
+    }
+    
+    .status-badge, .sat-badge-bars, .control-btn { height: 40px; }
+    .speed-capsule-modern { bottom: 30px; }
+}

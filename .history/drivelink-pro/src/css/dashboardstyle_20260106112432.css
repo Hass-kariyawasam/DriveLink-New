@@ -1,0 +1,168 @@
+/* ================================================
+   MOBILE RESPONSIVE - Add to END of dashboardstyle.css
+   ================================================ */
+
+/* Tablet (1024px and below) */
+@media screen and (max-width: 1024px) {
+    .stats-row {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+    
+    .dashboard-widgets {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+}
+
+/* Mobile (768px and below) */
+@media screen and (max-width: 768px) {
+    /* Dashboard App */
+    .dashboard-app {
+        flex-direction: column;
+    }
+
+    /* Main Content */
+    .dashboard-main {
+        padding: 12px;
+        padding-bottom: 80px; /* Space for bottom nav */
+        height: calc(100vh - 60px);
+    }
+
+    /* Header */
+    .dashboard-content > div:first-child h1 {
+        font-size: 22px !important;
+    }
+
+    .dashboard-content > div:first-child p {
+        font-size: 12px !important;
+        flex-wrap: wrap;
+    }
+
+    /* Stats Row - 2 columns */
+    .stats-row {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 10px;
+        margin-bottom: 16px;
+    }
+
+    .stat-card {
+        padding: 16px;
+    }
+
+    .stat-info h3 {
+        font-size: 11px;
+    }
+
+    .stat-info p {
+        font-size: 20px !important;
+    }
+
+    .stat-icon {
+        width: 45px;
+        height: 45px;
+        font-size: 20px;
+    }
+
+    /* Widgets - 1 column */
+    .dashboard-widgets {
+        grid-template-columns: 1fr !important;
+        gap: 16px;
+    }
+
+    .widget {
+        padding: 16px;
+    }
+
+    .widget-header h2 {
+        font-size: 16px;
+    }
+
+    /* Fuel Widget */
+    .fuel-container {
+        width: 120px !important;
+        height: 120px !important;
+    }
+
+    .fuel-text {
+        font-size: 28px !important;
+    }
+
+    /* Battery Widget */
+    .battery-body {
+        width: 60px !important;
+        height: 120px !important;
+    }
+
+    /* Status Widget */
+    .status-items {
+        grid-template-columns: 1fr !important;
+        gap: 10px;
+    }
+
+    /* Control Widget */
+    .control-item {
+        padding: 14px;
+    }
+}
+
+/* Small Mobile (480px and below) */
+@media screen and (max-width: 480px) {
+    .dashboard-main {
+        padding: 10px;
+        padding-bottom: 75px;
+    }
+
+    .dashboard-content > div:first-child h1 {
+        font-size: 20px !important;
+    }
+
+    /* Stats in 1 column */
+    .stats-row {
+        grid-template-columns: 1fr !important;
+    }
+
+    .stat-card {
+        padding: 14px;
+    }
+
+    .stat-info p {
+        font-size: 22px !important;
+    }
+
+    /* Smaller widgets */
+    .widget {
+        padding: 14px;
+    }
+
+    .fuel-container {
+        width: 100px !important;
+        height: 100px !important;
+    }
+
+    .fuel-text {
+        font-size: 24px !important;
+    }
+
+    .battery-body {
+        width: 50px !important;
+        height: 100px !important;
+    }
+}
+
+/* Landscape mode fix */
+@media screen and (max-height: 600px) and (orientation: landscape) {
+    .dashboard-main {
+        padding: 10px;
+        padding-bottom: 70px;
+    }
+
+    .stats-row {
+        gap: 8px;
+        margin-bottom: 12px;
+    }
+
+    .dashboard-widgets {
+        gap: 12px;
+    }
+}

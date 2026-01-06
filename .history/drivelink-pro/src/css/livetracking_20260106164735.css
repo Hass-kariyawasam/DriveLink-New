@@ -1,0 +1,187 @@
+/* Live Tracking Page Styles */
+
+.tracking-wrapper {
+    position: relative;
+    width: 100%;
+    height: 80vh;
+    min-height: 500px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+#live-map {
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+/* Toggle Button Position */
+.live-toggle-pos {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 500;
+}
+
+/* Floating Stats Panel (Desktop) */
+.tracking-stats-panel {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    z-index: 500;
+    background: rgba(30, 30, 45, 0.9); /* Darker background */
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    width: 280px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.panel-header h3 {
+    margin: 0;
+    font-size: 16px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Status Colors */
+.status-indicator {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 20px;
+    text-transform: uppercase;
+}
+
+.status-online {
+    background: rgba(27, 197, 189, 0.2);
+    color: #1bc5bd;
+    border: 1px solid rgba(27, 197, 189, 0.3);
+}
+
+.status-offline {
+    background: rgba(246, 78, 96, 0.2);
+    color: #f64e60;
+    border: 1px solid rgba(246, 78, 96, 0.3);
+}
+
+.blink-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: currentColor;
+    animation: blink 1.5s infinite;
+}
+
+@keyframes blink { 50% { opacity: 0; } }
+
+/* Data Rows */
+.panel-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.panel-label {
+    font-size: 12px;
+    color: #8fa2b6;
+    font-weight: 500;
+}
+
+.panel-value {
+    font-size: 13px;
+    font-weight: 700;
+    color: #e8eaed;
+}
+
+/* Big Speed Display */
+.speed-display-large {
+    text-align: center;
+    margin-top: 15px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.speed-number {
+    font-size: 38px;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1;
+    font-family: 'Segoe UI', monospace;
+    text-shadow: 0 0 20px rgba(54, 153, 255, 0.4);
+}
+
+.speed-text {
+    font-size: 11px;
+    color: #3699ff;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-top: 2px;
+}
+
+/* =========================================
+   MOBILE RESPONSIVE FIXES (වැදගත්ම ටික)
+   ========================================= */
+@media (max-width: 768px) {
+    .tracking-wrapper {
+        height: 75vh; /* Screen height adjustment */
+    }
+
+    .tracking-stats-panel {
+        /* මැදට සහ යටට සෙට් වෙන්න */
+        width: 90%; 
+        left: 50%;
+        transform: translateX(-50%); /* Center Horizontal */
+        bottom: 15px;
+        
+        /* ප්‍රමාණයන් අඩු කිරීම */
+        padding: 15px;
+        border-radius: 12px;
+    }
+
+    .panel-header {
+        margin-bottom: 10px;
+        padding-bottom: 8px;
+    }
+
+    .panel-header h3 {
+        font-size: 14px;
+    }
+
+    .panel-row {
+        margin-bottom: 8px;
+    }
+
+    .panel-label { font-size: 11px; }
+    .panel-value { font-size: 12px; }
+
+    /* Speed එක ෆෝන් එකට ගැලපෙන්න පොඩි කිරීම */
+    .speed-display-large {
+        margin-top: 10px;
+        padding-top: 8px;
+    }
+
+    .speed-number {
+        font-size: 32px; /* Font size reduced */
+    }
+}

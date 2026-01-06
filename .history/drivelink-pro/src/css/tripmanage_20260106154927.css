@@ -1,0 +1,585 @@
+/* Trip Manage Modern Styles */
+
+.trip-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: relative;
+}
+
+/* Map Styling */
+#map {
+    width: 100%;
+    height: 450px;
+    border-radius: 20px;
+    z-index: 1;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    border: 4px solid var(--dark-content);
+}
+
+/* Live Badge */
+.live-badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 400;
+    background: rgba(0, 0, 0, 0.7);
+    color: #f64e60;
+    padding: 8px 16px;
+    border-radius: 30px;
+    font-weight: 700;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(246, 78, 96, 0.3);
+}
+
+.pulsing-dot {
+    width: 10px;
+    height: 10px;
+    background-color: #f64e60;
+    border-radius: 50%;
+    animation: pulse-red 1.5s infinite;
+}
+
+@keyframes pulse-red {
+    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(246, 78, 96, 0.7); }
+    70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(246, 78, 96, 0); }
+    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(246, 78, 96, 0); }
+}
+
+/* Trip Info Cards */
+.trip-info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+    margin-top: 10px;
+}
+
+.trip-card {
+    background: linear-gradient(145deg, #1e1e2d, #252538);
+    padding: 20px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.trip-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    border-color: rgba(196, 251, 109, 0.2);
+}
+
+.trip-icon {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    font-size: 20px;
+}
+
+.trip-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.trip-label {
+    font-size: 12px;
+    color: var(--secondary-text-clr);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+}
+
+.trip-value {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text-clr);
+}
+
+/* Control Panel */
+.trip-controls {
+    background: var(--dark-content);
+    padding: 25px;
+    border-radius: 20px;
+    margin-top: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.control-header h3 {
+    margin: 0;
+    font-size: 18px;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.input-row {
+    display: flex;
+    gap: 15px;
+}
+
+.input-group {
+    flex: 1;
+}
+
+.input-group input, .input-group textarea {
+    width: 100%;
+    padding: 14px;
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--line-clr);
+    border-radius: 10px;
+    color: white;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.input-group input:focus, .input-group textarea:focus {
+    border-color: var(--primary);
+    outline: none;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.control-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+/* Modern Buttons */
+.btn-modern {
+    flex: 1;
+    padding: 16px;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.btn-modern:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    filter: grayscale(1);
+}
+
+.btn-start {
+    background: linear-gradient(135deg, #1bc5bd 0%, #0e8074 100%);
+    color: white;
+    box-shadow: 0 4px 15px rgba(27, 197, 189, 0.3);
+}
+
+.btn-start:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(27, 197, 189, 0.4);
+}
+
+.btn-end {
+    background: linear-gradient(135deg, #f64e60 0%, #c43347 100%);
+    color: white;
+    box-shadow: 0 4px 15px rgba(246, 78, 96, 0.3);
+}
+
+.btn-end:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(246, 78, 96, 0.4);
+}
+
+/* Save Modal */
+.save-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    animation: fadeIn 0.3s;
+}
+
+.save-modal {
+    background: #1e1e2d;
+    padding: 30px;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    transform: scale(0.9);
+    animation: popIn 0.3s forwards;
+}
+
+.save-modal i {
+    font-size: 50px;
+    color: #1bc5bd;
+    margin-bottom: 20px;
+}
+
+.save-modal h2 {
+    color: white;
+    margin-bottom: 10px;
+}
+
+.save-modal p {
+    color: #8fa2b6;
+    margin-bottom: 25px;
+}
+
+.modal-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-confirm {
+    background: #1bc5bd;
+    color: white;
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    flex: 1;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.btn-cancel {
+    background: #363645;
+    color: white;
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    flex: 1;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes popIn { to { transform: scale(1); } }
+
+@media (max-width: 768px) {
+    .trip-info-grid { grid-template-columns: repeat(2, 1fr); }
+    .input-row { flex-direction: column; }
+    .control-buttons { flex-direction: column; }
+}
+
+/* ... Kalin thibunu CSS tika ... */
+
+/* Map Theme Toggle Button */
+.map-toggle-btn {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 400;
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    backdrop-filter: blur(5px);
+    transition: 0.3s;
+}
+
+.map-toggle-btn:hover {
+    background: rgba(0, 0, 0, 0.8);
+    transform: scale(1.1);
+}
+
+/* Real-time Speed Overlay */
+.speed-overlay {
+    position: absolute;
+    bottom: 30px;
+    left: 20px;
+    z-index: 400;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 10px 20px;
+    border-radius: 12px;
+    border: 2px solid #3699ff;
+    text-align: center;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+}
+
+.speed-value {
+    display: block;
+    font-size: 32px;
+    font-weight: 800;
+    color: white;
+    line-height: 1;
+}
+
+.speed-unit {
+    font-size: 12px;
+    color: #3699ff;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+/* src/css/tripmanage.css */
+
+/* Main Container */
+.trip-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Reduced gap */
+    position: relative;
+}
+
+/* Map Styling */
+.map-wrapper {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+#map {
+    width: 100%;
+    height: 50vh; /* Responsive height */
+    min-height: 400px;
+    z-index: 1;
+    background: #1e1e2d;
+}
+
+/* 1. Map Theme Toggle (Moved to RIGHT) */
+.map-toggle-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px; /* Moved to Right */
+    z-index: 400;
+    background: rgba(30, 30, 45, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #f64e60; /* Accent Color */
+    width: 45px;
+    height: 45px;
+    border-radius: 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    backdrop-filter: blur(10px);
+    transition: 0.3s;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.map-toggle-btn:hover {
+    background: #f64e60;
+    color: white;
+    transform: scale(1.05);
+}
+
+/* 2. Modern Speed HUD (Bottom Center) */
+.speed-hud {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 400;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 15px 30px;
+    border-radius: 50px;
+    border: 2px solid rgba(54, 153, 255, 0.5); /* Blue Border */
+    text-align: center;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 0 20px rgba(54, 153, 255, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 140px;
+}
+
+.speed-hud h4 {
+    margin: 0;
+    color: #8fa2b6;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.speed-value {
+    font-size: 42px;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1;
+    font-family: 'Courier New', monospace; /* Digital look */
+    text-shadow: 0 0 10px rgba(54, 153, 255, 0.8);
+}
+
+.speed-unit {
+    font-size: 14px;
+    color: #3699ff;
+    font-weight: 700;
+}
+
+/* Live Badge (Top Left) */
+.live-badge {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 400;
+    background: #f64e60;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 0 15px rgba(246, 78, 96, 0.5);
+}
+
+.pulsing-dot {
+    width: 8px;
+    height: 8px;
+    background-color: white;
+    border-radius: 50%;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink { 50% { opacity: 0; } }
+
+/* 3. Centered & Compact Widget Grid */
+.trip-info-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center items */
+    gap: 12px; /* Reduced Gap */
+    margin-top: 10px;
+}
+
+.trip-card {
+    background: var(--dark-content);
+    padding: 15px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    flex: 1 1 160px; /* Flexible width */
+    max-width: 220px; /* Prevent too wide */
+    min-width: 140px;
+    transition: 0.3s;
+}
+
+.trip-card:hover {
+    background: rgba(255, 255, 255, 0.05);
+    transform: translateY(-2px);
+}
+
+.trip-icon {
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+.trip-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.trip-label {
+    font-size: 11px;
+    color: #8fa2b6;
+    text-transform: uppercase;
+}
+
+.trip-value {
+    font-size: 15px;
+    font-weight: 700;
+    color: #fff;
+}
+
+/* Controls */
+.trip-controls {
+    background: var(--dark-content);
+    padding: 20px;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.input-row {
+    display: flex;
+    gap: 10px;
+}
+
+.input-group { flex: 1; }
+
+.input-group input {
+    width: 100%;
+    padding: 12px;
+    background: var(--base-clr);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: white;
+}
+
+.control-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-modern {
+    flex: 1;
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: 0.2s;
+}
+
+.btn-start { background: #1bc5bd; color: white; }
+.btn-end { background: #f64e60; color: white; }
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .trip-info-grid {
+        justify-content: space-between;
+    }
+    .trip-card {
+        flex: 1 1 45%; /* 2 cards per row on mobile */
+        max-width: none;
+    }
+    .input-row { flex-direction: column; }
+}

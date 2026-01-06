@@ -1,0 +1,228 @@
+/* src/css/tripmanage.css */
+
+.trip-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Map Wrapper */
+.map-wrapper {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+#map {
+    width: 100%;
+    height: 50vh;
+    min-height: 400px;
+    background: #1e1e2d;
+    z-index: 1;
+}
+
+/* 1. Map Theme Toggle (Right Side) */
+.map-toggle-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px; /* Moved to Right */
+    left: auto;  /* Ensure Left is unset */
+    z-index: 400;
+    background: rgba(0, 0, 0, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    backdrop-filter: blur(5px);
+    transition: 0.3s;
+}
+
+.map-toggle-btn:hover {
+    background: #3699ff;
+    border-color: #3699ff;
+}
+
+/* 2. New Proportional Speedometer (Small & Centered) */
+.speed-hud-pro {
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 400;
+}
+
+.speed-circle {
+    width: 90px;  /* Smaller Size */
+    height: 90px;
+    background: rgba(0, 0, 0, 0.85);
+    border-radius: 50%;
+    border: 3px solid #3699ff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 20px rgba(54, 153, 255, 0.4);
+    backdrop-filter: blur(4px);
+}
+
+.speed-val {
+    font-size: 32px;
+    font-weight: 800;
+    color: white;
+    line-height: 1;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.speed-lbl {
+    font-size: 10px;
+    color: #8fa2b6;
+    font-weight: 700;
+    margin-top: 2px;
+}
+
+/* Live Badge */
+.live-badge {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 400;
+    background: #f64e60;
+    color: white;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 0 15px rgba(246, 78, 96, 0.5);
+}
+
+.pulsing-dot {
+    width: 8px;
+    height: 8px;
+    background-color: white;
+    border-radius: 50%;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink { 50% { opacity: 0; } }
+
+/* 3. Centered & Balanced Widget Grid */
+.trip-info-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr); /* 6 Columns for Desktop */
+    gap: 12px;
+    margin-top: 15px;
+}
+
+.trip-card {
+    background: var(--dark-content);
+    padding: 12px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column; /* Stack Icon & Text */
+    align-items: center;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: 0.3s;
+}
+
+.trip-card:hover {
+    background: rgba(255, 255, 255, 0.05);
+    transform: translateY(-3px);
+}
+
+.trip-icon {
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 50%;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.trip-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.trip-label {
+    font-size: 10px;
+    color: #8fa2b6;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.trip-value {
+    font-size: 14px;
+    font-weight: 700;
+    color: #fff;
+    margin-top: 2px;
+}
+
+/* Controls */
+.trip-controls {
+    background: var(--dark-content);
+    padding: 15px;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.input-row { display: flex; gap: 10px; }
+.input-group { flex: 1; }
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    background: var(--base-clr);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: white;
+    font-size: 13px;
+}
+
+.control-buttons { display: flex; gap: 10px; }
+
+.btn-modern {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+.btn-start { background: linear-gradient(135deg, #1bc5bd, #0e8074); color: white; }
+.btn-end { background: linear-gradient(135deg, #f64e60, #c43347); color: white; }
+
+/* Mobile Adjustments */
+@media (max-width: 1024px) {
+    .trip-info-grid { grid-template-columns: repeat(3, 1fr); } /* Tablet: 3 per row */
+}
+
+@media (max-width: 768px) {
+    .trip-info-grid { grid-template-columns: repeat(2, 1fr); } /* Mobile: 2 per row */
+    .input-row { flex-direction: column; }
+    #map { height: 400px; }
+}

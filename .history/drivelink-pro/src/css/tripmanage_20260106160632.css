@@ -1,0 +1,277 @@
+/* src/css/tripmanage.css */
+
+.trip-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding-bottom: 20px; /* Scroll wena nisa yatin ida */
+}
+
+/* Map Wrapper */
+.map-wrapper {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+#map {
+    width: 100%;
+    height: 50vh;
+    min-height: 400px;
+    background: #1e1e2d;
+    z-index: 1;
+}
+
+/* Top Right Controls */
+.map-controls-top-right {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index: 400;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Map Toggle */
+.map-toggle-btn {
+    background: rgba(0, 0, 0, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    width: 35px;
+    height: 35px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    backdrop-filter: blur(5px);
+}
+
+.live-badge {
+    background: #f64e60;
+    color: white;
+    padding: 0 10px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 11px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    height: 35px;
+}
+
+.pulsing-dot {
+    width: 6px;
+    height: 6px;
+    background-color: white;
+    border-radius: 50%;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink { 50% { opacity: 0; } }
+
+/* CAPSULE SPEEDOMETER (Bottom Center) */
+.speed-capsule {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 400;
+    background: rgba(0, 0, 0, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 6px 15px;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    backdrop-filter: blur(5px);
+}
+
+.speed-icon {
+    color: #3699ff;
+    font-size: 14px;
+}
+
+.speed-val {
+    font-size: 20px;
+    font-weight: 800;
+    color: white;
+    line-height: 1;
+    font-family: 'Segoe UI', monospace;
+}
+
+.speed-unit {
+    font-size: 10px;
+    color: #8fa2b6;
+    font-weight: 700;
+    padding-top: 4px;
+}
+
+/* COMPACT GRID SYSTEM */
+.trip-info-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 Columns Desktop */
+    gap: 10px;
+    margin-top: 10px;
+    width: 100%;
+}
+
+.trip-card {
+    background: var(--dark-content);
+    padding: 12px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.trip-icon {
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    font-size: 16px;
+    flex-shrink: 0;
+}
+
+.trip-details {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    overflow: hidden;
+}
+
+.trip-label {
+    font-size: 10px;
+    color: #8fa2b6;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.trip-value {
+    font-size: 14px;
+    font-weight: 700;
+    color: #fff;
+    white-space: nowrap;
+}
+
+/* Controls */
+.trip-controls {
+    background: var(--dark-content);
+    padding: 15px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.input-row { display: flex; gap: 10px; }
+.input-group { flex: 1; }
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    background: var(--base-clr);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: white;
+    font-size: 13px;
+}
+
+.control-buttons { display: flex; gap: 10px; }
+
+.btn-modern {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+.btn-start { background: linear-gradient(135deg, #1bc5bd, #0e8074); color: white; }
+.btn-end { background: linear-gradient(135deg, #f64e60, #c43347); color: white; }
+
+/* Modal */
+.save-modal-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(5px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.save-modal {
+    background: #1e1e2d;
+    padding: 25px;
+    border-radius: 16px;
+    width: 90%;
+    max-width: 350px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.modal-actions { display: flex; gap: 10px; margin-top: 20px; }
+.btn-confirm { background: #1bc5bd; color: white; padding: 10px; border-radius: 8px; border: none; flex: 1; cursor: pointer; }
+.btn-cancel { background: #363645; color: white; padding: 10px; border-radius: 8px; border: none; flex: 1; cursor: pointer; }
+
+/* =========================================
+   MOBILE RESPONSIVE FIXES
+   ========================================= */
+@media (max-width: 768px) {
+    /* 1. Grid Adjustment: 2 Columns for Mobile */
+    .trip-info-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px; /* Tighter gap */
+    }
+
+    /* 2. Map Height Reduced */
+    #map {
+        height: 350px;
+        min-height: 300px;
+    }
+
+    /* 3. Card Compact Styling */
+    .trip-card {
+        padding: 10px 8px;
+        flex-direction: column; /* Stack Icon & Text */
+        text-align: center;
+        justify-content: center;
+    }
+
+    .trip-details {
+        text-align: center;
+        margin-top: 5px;
+    }
+
+    /* 4. Smaller Fonts for Mobile */
+    .trip-value { font-size: 13px; }
+    .trip-label { font-size: 9px; }
+    .trip-icon { width: 30px; height: 30px; font-size: 14px; }
+
+    /* 5. Inputs Stack */
+    .input-row { flex-direction: column; gap: 8px; }
+    
+    /* 6. Buttons */
+    .btn-modern { padding: 10px; font-size: 13px; }
+}

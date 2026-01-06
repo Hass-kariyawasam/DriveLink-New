@@ -1,0 +1,664 @@
+/* ================================================
+   SIDEBAR.CSS - Sidebar එකට විතරක් අදාල Styles
+   ================================================ */
+
+/* Sidebar Main Container */
+#sidebar {
+    position: sticky;
+    top: 0;
+    width: 260px;
+    height: 100vh;
+    flex-shrink: 0;
+    z-index: 1000;
+    background-color: var(--base-clr);
+    border-right: 1px solid var(--line-clr);
+    box-sizing: border-box;
+    transition: width var(--transition-speed);
+    display: flex;
+    flex-direction: column;
+}
+
+body.light-mode #sidebar {
+    background-color: var(--light-sidebar);
+}
+
+/* Collapsed Sidebar */
+#sidebar:not(.expanded) {
+    width: 70px;
+}
+
+/* ================================================
+   SIDEBAR HEADER
+   ================================================ */
+.sidebar-header {
+    padding: 15px 20px;
+    display: flex;
+    margin-top: 10px;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--dark-border);
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo-img {
+    width: 32px;
+    height: 32px;
+    transition: opacity var(--transition-speed);
+}
+
+.logo-text {
+    margin-top: 5px;
+    margin-left: 12px;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--dark-text);
+    transition: opacity var(--transition-speed);
+}
+
+#sidebar:not(.expanded) .logo-text,
+#sidebar:not(.expanded) .logo-img {
+    opacity: 0;
+    display: none;
+}
+
+/* Toggle Button */
+#toggle-btn {
+    background: transparent;
+    border: none;
+    color: var(--dark-text-secondary);
+    cursor: pointer;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color var(--transition-speed);
+}
+
+body.light-mode #toggle-btn {
+    color: var(--light-text-secondary);
+}
+
+#toggle-btn:hover {
+    color: var(--primary);
+}
+
+/* ================================================
+   USERNAME DISPLAY
+   ================================================ */
+.username-text {
+    padding: 0;
+    margin-left: 20px;
+    color: #b0b3c1;
+    font-size: 14px;
+}
+
+body.light-mode .username-text {
+    font-weight: 600;
+    color: var(--base-clr);
+}
+
+/* Divider Line */
+.divider {
+    height: 1px;
+    background-color: var(--dark-border);
+    margin: 0 16px 10px 16px;
+    transition: margin var(--transition-speed);
+}
+
+body.light-mode .divider {
+    background-color: var(--light-border);
+}
+
+#sidebar:not(.expanded) .divider {
+    margin: 0 8px 10px 8px;
+}
+
+/* ================================================
+   SIDEBAR MENU
+   ================================================ */
+.sidebar-menu {
+    list-style: none;
+    padding: 5px 0;
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+.sidebar-menu li {
+    margin-bottom: 4px;
+}
+
+.sidebar-menu li a {
+    display: flex;
+    align-items: center;
+    padding: 10px 16px;
+    color: var(--dark-text-secondary);
+    text-decoration: none;
+    border-radius: 6px;
+    margin: 0 8px;
+    transition: color var(--transition-speed), background-color var(--transition-speed);
+}
+
+body.light-mode .sidebar-menu li a {
+    color: var(--light-text-secondary);
+}
+
+.sidebar-menu li a i {
+    min-width: 24px;
+    margin-right: 12px;
+    font-size: 18px;
+    text-align: center;
+}
+
+.sidebar-menu li a span {
+    transition: opacity var(--transition-speed);
+}
+
+/* Collapsed State */
+#sidebar:not(.expanded) .sidebar-menu li a {
+    padding: 10px;
+    justify-content: center;
+}
+
+#sidebar:not(.expanded) .sidebar-menu li a i {
+    margin-right: 0;
+}
+
+#sidebar:not(.expanded) .sidebar-menu li a span {
+    opacity: 0;
+    display: none;
+}
+
+/* Hover Effect */
+.sidebar-menu li a:hover {
+    color: var(--dark-text);
+    background-color: var(--dark-hover);
+}
+
+body.light-mode .sidebar-menu li a:hover {
+    color: var(--light-text);
+    background-color: var(--light-hover);
+}
+
+/* Active Link */
+.sidebar-menu li.active a {
+    color: var(--accent-clr);
+    background-color: var(--dark-active);
+    font-weight: 500;
+}
+
+body.light-mode .sidebar-menu li.active a {
+    color: var(--lightaccent-clr);
+    background-color: var(--light-active);
+}
+
+/* ================================================
+   SUBMENU (Reports Dropdown)
+   ================================================ */
+.sidebar-menu li.has-submenu {
+    position: relative;
+}
+
+.sidebar-menu li.has-submenu > a {
+    position: relative;
+}
+
+.sidebar-menu li.has-submenu > a .arrow {
+    margin-left: auto;
+    font-size: 12px;
+    transition: transform var(--transition-speed);
+}
+
+#sidebar:not(.expanded) .sidebar-menu li.has-submenu > a .arrow {
+    display: none;
+}
+
+.sidebar-menu li.has-submenu.active > a .arrow {
+    transform: rotate(180deg);
+}
+
+.sub-menu {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height var(--transition-speed);
+    padding-left: 0;
+}
+
+.sidebar-menu li.has-submenu.active .sub-menu {
+    max-height: 500px;
+}
+
+.sub-menu li a {
+    padding-left: 52px;
+    margin-top: 5px;
+}
+
+#sidebar:not(.expanded) .sub-menu {
+    display: none;
+}
+
+/* ================================================
+   SIDEBAR FOOTER
+   ================================================ */
+.sidebar-footer {
+    margin-top: 15px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+#sidebar:not(.expanded) .sidebar-footer {
+    padding: 20px 8px;
+    align-items: center;
+}
+
+.sidebar-footer button {
+    display: flex;
+    align-items: center;
+    padding: 8px 25px;
+    border-radius: 6px;
+    border: none;
+    background-color: transparent;
+    color: var(--dark-text-secondary);
+    cursor: pointer;
+    width: 100%;
+    transition: background-color var(--transition-speed), color var(--transition-speed);
+}
+
+body.light-mode .sidebar-footer button {
+    color: var(--light-text-secondary);
+}
+
+.sidebar-footer button i {
+    margin-right: 12px;
+    min-width: 24px;
+    text-align: center;
+}
+
+.sidebar-footer button span {
+    transition: opacity var(--transition-speed);
+}
+
+/* Collapsed Footer */
+#sidebar:not(.expanded) .sidebar-footer button {
+    justify-content: center;
+    padding: 10px;
+}
+
+#sidebar:not(.expanded) .sidebar-footer button i {
+    margin-right: 0;
+}
+
+#sidebar:not(.expanded) .sidebar-footer button span {
+    opacity: 0;
+    display: none;
+}
+
+/* Footer Button Hover */
+.sidebar-footer button:hover {
+    background-color: var(--dark-hover);
+    color: var(--dark-text);
+}
+
+body.light-mode .sidebar-footer button:hover {
+    background-color: var(--light-hover);
+    color: var(--light-text);
+}
+
+/* Logout Button Special Style */
+.logout-btn {
+    color: var(--danger) !important;
+}
+
+.logout-btn:hover {
+    background-color: rgba(246, 78, 96, 0.1) !important;
+}
+
+/* ================================================
+   LOGO TEXT STYLING (DriveLink)
+   ================================================ */
+.highlight {
+    color: white;
+    font-size: 25px;
+}
+
+.highlight2 {
+    color: var(--accent-clr);
+    font-weight: 800;
+    font-size: 25px;
+}
+
+body.light-mode .highlight {
+    color: var(--base-clr);
+}
+
+body.light-mode .highlight2 {
+    color: var(--lightaccent-clr);
+}
+
+/* ================================================
+   MOBILE RESPONSIVE (Phone View)
+   ================================================ */
+@media (max-width: 768px) {
+    #sidebar {
+        width: 100%;
+        height: 60px;
+        position: fixed;
+        bottom: 0;
+        top: auto;
+        flex-direction: row;
+        border-right: none;
+        border-top: 1px solid var(--dark-border);
+        z-index: 2000;
+    }
+
+    .sidebar-header {
+        display: none;
+    }
+
+    .divider {
+        display: none;
+    }
+
+    .sidebar-menu {
+        display: flex;
+        flex-direction: row;
+        overflow-x: auto;
+        overflow-y: hidden;
+        padding: 0;
+        gap: 0;
+        flex-grow: 1;
+    }
+
+    .sidebar-menu li {
+        margin: 0;
+    }
+
+    .sidebar-menu li a {
+        width: 60px;
+        height: 60px;
+        padding: 0;
+        margin: 0;
+        border-radius: 0;
+        flex-direction: column;
+        justify-content: center;
+        font-size: 12px;
+    }
+
+    .sidebar-menu li a i {
+        margin-right: 0;
+        margin-bottom: 4px;
+        font-size: 20px;
+    }
+
+    .sidebar-menu li a span {
+        opacity: 1 !important;
+        display: block !important;
+        font-size: 10px;
+    }
+
+    .sidebar-menu li.active a {
+        background-color: transparent;
+    }
+
+    body.light-mode .sidebar-menu li.active a {
+        background-color: transparent;
+    }
+
+    /* Submenu Mobile Style */
+    .sidebar-menu li.has-submenu > a .arrow {
+        display: none;
+    }
+
+    .sidebar-menu li.has-submenu.active {
+        position: fixed;
+        bottom: 60px;
+        left: 0;
+        width: 100%;
+        height: 50px;
+        background-color: var(--hover-clr);
+        border-top: 1px solid var(--line-clr);
+        display: flex;
+        justify-content: center;
+        z-index: 1999;
+    }
+
+    .sidebar-menu li.has-submenu.active .sub-menu {
+        display: flex;
+        flex-direction: row;
+        overflow-x: auto;
+        max-height: none;
+        padding: 0;
+    }
+
+    .sub-menu li a {
+        padding: 1em;
+        width: auto;
+        justify-content: center;
+    }
+
+    .sidebar-footer {
+        display: none;
+    }
+}
+import React, { useState, useEffect } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { auth, db } from '../firebase';
+import { doc, getDoc } from 'firebase/firestore';
+import '../css/sidebar.css';
+
+const Sidebar = () => {
+  const [isExpanded, setIsExpanded] = useState(true);
+  const [isReportsOpen, setIsReportsOpen] = useState(false);
+  const [username, setUsername] = useState("--");
+  const [isMobile, setIsMobile] = useState(false);
+  
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  // Check if mobile
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  useEffect(() => {
+    const fetchUserName = async () => {
+      if (auth.currentUser) {
+        const userDoc = await getDoc(doc(db, "users", auth.currentUser.uid));
+        if (userDoc.exists()) {
+          setUsername(userDoc.data().username || "User");
+        }
+      }
+    };
+    fetchUserName();
+  }, []);
+
+  const handleLogout = () => {
+    auth.signOut().then(() => {
+      navigate('/login');
+    });
+  };
+
+  const toggleSidebar = () => setIsExpanded(!isExpanded);
+  const toggleReports = () => setIsReportsOpen(!isReportsOpen);
+  
+  const isActive = (path) => location.pathname === path ? 'active' : '';
+
+  // Main navigation items for mobile bottom nav
+  const mainNavItems = [
+    { path: '/dashboard', icon: 'fa-solar-panel', label: 'Dashboard' },
+    { path: '/fuel', icon: 'fa-gas-pump', label: 'Fuel' },
+    { path: '/battery', icon: 'fa-car-battery', label: 'Battery' },
+    { path: '/map', icon: 'fa-map-location-dot', label: 'Map' },
+    { path: '/profile', icon: 'fa-user-large', label: 'Profile' }
+  ];
+
+  // Mobile Bottom Navigation
+  if (isMobile) {
+    return (
+      <nav id="sidebar" className="mobile-bottom-nav">
+        <ul className="sidebar-menu">
+          {mainNavItems.map((item) => (
+            <li key={item.path} className={isActive(item.path)}>
+              <Link to={item.path}>
+                <i className={`fa-solid ${item.icon}`}></i>
+                <span>{item.label}</span>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    );
+  }
+
+  // Desktop Sidebar
+  return (
+    <nav id="sidebar" className={isExpanded ? 'expanded' : ''}>
+      
+      {/* Sidebar Header */}
+      <div className="sidebar-header">
+        <div className="logo-container">
+          <img src="/logo.png" alt="DriveLink" className="logo-img" />
+          <span className="logo-text">
+             <span className="highlight">Drive</span>
+             <span className="highlight2">link</span>
+          </span>
+        </div>
+        <button id="toggle-btn" onClick={toggleSidebar}>
+          <i className={`fas fa-chevron-${isExpanded ? 'left' : 'right'}`}></i>
+        </button>
+      </div>
+
+      <ul className="sidebar-menu">
+        
+        {/* Username */}
+        <li>
+            <p className="username-text" style={{
+                marginLeft: isExpanded ? '20px' : '0', 
+                display: isExpanded ? 'block' : 'none',
+                color: '#b0b3c1', fontSize: '14px', marginBottom:'10px'
+            }}>
+                Hi, {username}!
+            </p>
+            <div className="divider"></div>
+        </li>
+
+        {/* Dashboard */}
+        <li className={isActive('/dashboard')}>
+          <Link to="/dashboard">
+            <i className="fa-solid fa-solar-panel"></i>
+            <span>Dashboard</span>
+          </Link>
+        </li>
+        
+        {/* Fuel Status */}
+        <li className={isActive('/fuel')}>
+          <Link to="/fuel">
+            <i className="fa-solid fa-gas-pump"></i>
+            <span>Fuel Status</span>
+          </Link>
+        </li>
+        
+        {/* Battery Status */}
+        <li className={isActive('/battery')}>
+          <Link to="/battery">
+            <i className="fa-solid fa-car-battery"></i>
+            <span>Battery Status</span>
+          </Link>
+        </li>
+
+        {/* Live Tracking */}
+        <li className={isActive('/map')}>
+          <Link to="/map">
+            <i className="fa-solid fa-map-location-dot"></i>
+            <span>Live Tracking</span>
+          </Link>
+        </li>
+
+        {/* Trip Manage */}
+        <li className={isActive('/trips')}>
+          <Link to="/trips">
+            <i className="fa-solid fa-compass"></i>
+            <span>Trip Manage</span>
+          </Link>
+        </li>
+
+        {/* Vehicle Health */}
+        <li className={isActive('/health')}>
+          <Link to="/health">
+            <i className="fa-solid fa-heart-pulse"></i>
+            <span>Vehicle Health</span>
+          </Link>
+        </li>
+
+        {/* Reports Dropdown */}
+        <li className={`has-submenu ${isReportsOpen ? 'active' : ''}`}>
+          <a href="#" onClick={(e) => { e.preventDefault(); toggleReports(); }}>
+            <i className="fa-solid fa-flask-vial"></i>
+            <span>Reports</span>
+            <i className={`fas fa-chevron-${isReportsOpen ? 'up' : 'down'} arrow`} style={{marginLeft:'auto', fontSize:'12px'}}></i>
+          </a>
+          <ul className="sub-menu" style={{ 
+              display: isReportsOpen ? 'block' : 'none',
+              paddingLeft: '50px'
+          }}>
+            <li><Link to="/reports/trip">Trip Report</Link></li>
+            <li><Link to="/reports/fuel">Fuel Report</Link></li>
+            <li><Link to="/reports/battery">Battery Report</Link></li>
+          </ul>
+        </li>
+
+        {/* Reminders */}
+        <li className={isActive('/reminders')}>
+          <Link to="/reminders">
+            <i className="fa-solid fa-bell"></i>
+            <span>Reminders</span>
+          </Link>
+        </li>
+
+        {/* History */}
+        <li className={isActive('/history')}>
+          <Link to="/history">
+            <i className="fa-solid fa-clock-rotate-left"></i>
+            <span>History</span>
+          </Link>
+        </li>
+
+        {/* Profile */}
+        <li className={isActive('/profile')}>
+          <Link to="/profile">
+            <i className="fa-solid fa-user-large"></i>
+            <span>Profile</span>
+          </Link>
+        </li>
+      </ul>
+
+      <div className="divider"></div>
+
+      {/* Footer */}
+      <div className="sidebar-footer">
+        <button id="theme-toggle">
+            <i className="fas fa-moon"></i>
+            <span style={{display: isExpanded ? 'inline' : 'none'}}>Dark Mode</span>
+        </button>
+        <button id="logout-button" className="logout-btn" onClick={handleLogout}>
+            <i className="fas fa-sign-out-alt"></i>
+            <span style={{display: isExpanded ? 'inline' : 'none'}}>Logout</span>
+        </button>
+      </div>
+
+    </nav>
+  );
+};
+
+export default Sidebar;

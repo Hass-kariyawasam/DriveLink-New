@@ -1,0 +1,137 @@
+/* Live Tracking Page Styles */
+
+.tracking-wrapper {
+    position: relative;
+    width: 100%;
+    height: 80vh; /* Screen එකෙන් 80% ක් උසට */
+    min-height: 500px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+#live-map {
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+/* Floating Stats Panel (Glassmorphism) */
+.tracking-stats-panel {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    z-index: 500;
+    background: rgba(30, 30, 45, 0.85);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    width: 280px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    color: white;
+}
+
+.panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.panel-header h3 {
+    margin: 0;
+    font-size: 16px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Live Status Indicator */
+.status-indicator {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 8px;
+    border-radius: 12px;
+}
+
+.status-online {
+    background: rgba(27, 197, 189, 0.2);
+    color: #1bc5bd;
+}
+
+.status-offline {
+    background: rgba(246, 78, 96, 0.2);
+    color: #f64e60;
+}
+
+.blink-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: currentColor;
+    animation: blink 1.5s infinite;
+}
+
+@keyframes blink { 50% { opacity: 0; } }
+
+/* Data Rows */
+.panel-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+
+.panel-label {
+    font-size: 12px;
+    color: #8fa2b6;
+}
+
+.panel-value {
+    font-size: 14px;
+    font-weight: 600;
+    color: #e8eaed;
+}
+
+/* Big Speed Display */
+.speed-display-large {
+    text-align: center;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.speed-number {
+    font-size: 42px;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1;
+    font-family: 'Segoe UI', monospace;
+    text-shadow: 0 0 15px rgba(54, 153, 255, 0.6);
+}
+
+.speed-text {
+    font-size: 12px;
+    color: #3699ff;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .tracking-wrapper {
+        height: 70vh;
+    }
+    .tracking-stats-panel {
+        width: calc(100% - 40px);
+        left: 20px;
+        bottom: 20px;
+    }
+}

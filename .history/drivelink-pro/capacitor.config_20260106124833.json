@@ -1,0 +1,8 @@
+{
+  "appId": "com.drivelink.app",
+  "appName": "DriveLink",
+  "webDir": "dist",
+  "server": {
+    "androidScheme": "https"
+  }
+}
