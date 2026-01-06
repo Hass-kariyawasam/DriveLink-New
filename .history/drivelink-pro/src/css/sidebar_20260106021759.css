@@ -1,0 +1,182 @@
+/* =========================================
+   SIDEBAR STYLES (Cleaned & Mobile Responsive)
+   ========================================= */
+
+/* Sidebar Container */
+#sidebar {
+    width: 260px;
+    height: 100%;        /* Screen එකේ උසටම */
+    flex-shrink: 0;      /* Sidebar එක තෙරපෙන්නේ නෑ */
+    background-color: var(--base-clr);
+    border-right: 1px solid var(--line-clr);
+    z-index: 100;
+    overflow-y: auto;    /* Sidebar එක ඇතුලේ විතරක් Scroll වෙන්න */
+    transition: width 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Sidebar Scrollbar සැඟවීම */
+#sidebar::-webkit-scrollbar { display: none; }
+#sidebar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* Collapsed State (පොඩි වුනාම) */
+#sidebar:not(.expanded) {
+    width: 70px;
+}
+
+/* Header & Logo */
+.sidebar-header {
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--line-clr);
+    min-height: 70px;
+}
+
+.logo-container { display: flex; align-items: center; }
+.logo-img { width: 32px; height: 32px; }
+
+.logo-text {
+    margin-left: 12px; font-size: 1.25rem; font-weight: 600;
+    color: var(--text-clr); transition: opacity 0.3s;
+    white-space: nowrap;
+}
+
+/* Collapsed Logic - Hide Elements */
+#sidebar:not(.expanded) .logo-text,
+#sidebar:not(.expanded) .logo-img,
+#sidebar:not(.expanded) .username-text,
+#sidebar:not(.expanded) .sidebar-menu li a span,
+#sidebar:not(.expanded) .sidebar-footer button span,
+#sidebar:not(.expanded) .divider,
+#sidebar:not(.expanded) .arrow {
+    display: none; opacity: 0;
+}
+
+/* Center Icons when Collapsed */
+#sidebar:not(.expanded) .sidebar-menu li a,
+#sidebar:not(.expanded) .sidebar-footer button {
+    justify-content: center; padding: 10px;
+}
+#sidebar:not(.expanded) .sidebar-menu li a i,
+#sidebar:not(.expanded) .sidebar-footer button i {
+    margin-right: 0;
+}
+
+/* Toggle Button */
+#toggle-btn {
+    background: transparent; border: none;
+    color: var(--secondary-text-clr); cursor: pointer; padding: 5px;
+}
+#toggle-btn:hover { color: var(--primary); }
+
+/* Menu Items */
+.sidebar-menu {
+    list-style: none; padding: 10px 0; flex-grow: 1;
+}
+.sidebar-menu li { margin-bottom: 4px; }
+
+.sidebar-menu li a {
+    display: flex; align-items: center; padding: 12px 20px;
+    color: var(--secondary-text-clr); text-decoration: none;
+    border-radius: 0; border-left: 3px solid transparent;
+    transition: 0.3s;
+}
+
+.sidebar-menu li a:hover {
+    color: var(--text-clr); background-color: var(--hover-clr);
+}
+
+.sidebar-menu li.active a {
+    color: var(--accent-clr);
+    background-color: rgba(196, 251, 109, 0.1);
+    border-left: 3px solid var(--accent-clr);
+}
+
+.sidebar-menu li a i {
+    min-width: 24px; margin-right: 12px; font-size: 18px; text-align: center;
+}
+
+.username-text {
+    color: var(--secondary-text-clr); font-size: 14px; margin-bottom: 10px;
+}
+
+.divider {
+    height: 1px; background-color: var(--line-clr); margin: 0 16px 10px;
+}
+
+/* Submenu */
+.sub-menu { overflow: hidden; max-height: 0; transition: max-height 0.3s; background: rgba(0,0,0,0.2); }
+.sidebar-menu li.has-submenu.active .sub-menu { max-height: 500px; }
+.sub-menu li a { padding-left: 52px; font-size: 14px; }
+
+/* Footer */
+.sidebar-footer {
+    padding: 20px; display: flex; flex-direction: column; gap: 10px;
+    border-top: 1px solid var(--line-clr);
+}
+.sidebar-footer button {
+    display: flex; align-items: center; padding: 10px; border-radius: 6px;
+    border: none; background: transparent; color: var(--secondary-text-clr);
+    cursor: pointer; width: 100%; transition: 0.3s;
+}
+.sidebar-footer button:hover { background-color: var(--hover-clr); color: var(--text-clr); }
+.sidebar-footer button i { margin-right: 12px; }
+.logout-btn { color: var(--danger) !important; }
+.logout-btn:hover { background-color: rgba(246, 78, 96, 0.1) !important; }
+
+/* =========================================
+   MOBILE RESPONSIVENESS (SIDEBAR)
+   ========================================= */
+@media (max-width: 768px) {
+    #sidebar {
+        width: 100% !important;
+        height: 60px;
+        position: fixed;
+        bottom: 0;
+        top: auto;
+        flex-direction: row; /* හරහට පෙන්වන්න */
+        border-right: none;
+        border-top: 1px solid var(--line-clr);
+        padding: 0;
+        overflow: visible;
+    }
+
+    /* Mobile එකේදී අනවශ්‍ය දේවල් හැංගීම */
+    .sidebar-header, .sidebar-footer, .divider, .username-text, .sub-menu {
+        display: none !important;
+    }
+
+    .sidebar-menu {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        justify-content: space-around;
+        padding: 0;
+        align-items: center;
+    }
+
+    .sidebar-menu li { margin: 0; width: 100%; }
+    
+    .sidebar-menu li a {
+        flex-direction: column;
+        justify-content: center;
+        padding: 8px;
+        font-size: 10px;
+        border-left: none;
+        border-top: 3px solid transparent;
+        height: 60px;
+    }
+
+    .sidebar-menu li.active a {
+        border-left: none;
+        border-top: 3px solid var(--accent-clr);
+    }
+
+    .sidebar-menu li a i { margin-right: 0; margin-bottom: 2px; font-size: 20px; }
+    
+    /* Mobile එකේදී Text එක පොඩියට පෙන්වන්න හෝ හංගන්න */
+    .sidebar-menu li a span { display: block !important; font-size: 10px; }
+}

@@ -1,0 +1,22 @@
+/* Navbar & Global Styles */
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: sans-serif; }
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    background: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: fixed; /* උඩම රැඳිලා තියෙන්න */
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo { font-size: 24px; font-weight: bold; color: #ff5722; text-decoration: none; }
+.nav-links a { margin-left: 20px; text-decoration: none; color: #333; font-weight: 500; }
+.btn-login { background: #333; color: white !important; padding: 8px 20px; border-radius: 5px; }
+
+/* Page එක Navbar එකට යට නොවෙන්න දෙන ඉඩ */
+.page-content { margin-top: 60px; }

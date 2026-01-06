@@ -1,0 +1,113 @@
+/* =========================================
+   HOME PAGE CSS
+   File Location: src/css/home.css
+   ========================================= */
+
+/* ---------------------------
+   1. HERO SECTION (Main Banner)
+   --------------------------- */
+.home-hero {
+    width: 100%;
+    height: 90vh; /* Screen eken 90% usai */
+    /* Pahala thiyena 'hero-bg.jpg' wenuwata oyaage image eke nama danna */
+    background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('../images/hero-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #ffffff;
+}
+
+.home-hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.home-hero p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    max-width: 700px;
+    line-height: 1.6;
+}
+
+/* Button Design */
+.hero-btn {
+    padding: 15px 35px;
+    background-color: #ff6b6b; /* Button color */
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 30px;
+    transition: 0.3s;
+}
+
+.hero-btn:hover {
+    background-color: #ee5253;
+    transform: scale(1.05); /* Mouse eka thibbahama poddak lokuwela penawa */
+}
+
+/* ---------------------------
+   2. SERVICES SECTION (Grid)
+   --------------------------- */
+.home-services {
+    padding: 80px 20px;
+    background-color: #f4f4f4;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    color: #333;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.service-card {
+    background: white;
+    padding: 40px 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-10px); /* Uda yana effect eka */
+}
+
+.service-card h3 {
+    margin-top: 15px;
+    margin-bottom: 10px;
+    color: #2c3e50;
+}
+
+/* ---------------------------
+   3. RESPONSIVE (Phone walata)
+   --------------------------- */
+@media (max-width: 768px) {
+    .home-hero h1 {
+        font-size: 2.2rem;
+    }
+    
+    .home-hero p {
+        font-size: 1rem;
+        padding: 0 20px;
+    }
+    
+    .home-services {
+        padding: 50px 15px;
+    }
+}

@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+/* Reset (මේක Dashboard එකට බලපෑවට කමක් නෑ) */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* Body එක වෙනුවට අපි මේ Class එක පාවිච්චි කරනවා */
+.public-layout {
+    font-family: "Poppins", serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+    width: 100%;
+    min-height: 100vh;
+    position: absolute; /* Styles හරියටම අල්ලගන්න */
+    top: 0;
+    left: 0;
+}
+
+/* හැම Style එකකටම ඉස්සරහින් .public-layout දාන්න */
+
+.public-layout .navbar {
+    background-color: #333;
+    padding: 15px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.public-layout .navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.public-layout .navbar-logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #a71818;
+    text-decoration: none;
+}
+
+.public-layout .navbar-menu { display: flex; list-style: none; gap: 20px; }
+.public-layout .navbar-menu a { text-decoration: none; color: white; transition: 0.3s; }
+.public-layout .navbar-menu a:hover { color: #06e690; }
+
+.public-layout .hero {
+    background: linear-gradient(135deg, #06e690, #1b1b1b);
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+}
+
+.public-layout .hero h1 { font-size: 3.5rem; margin-bottom: 15px; }
+.public-layout .hero p { font-size: 1.2rem; margin-bottom: 30px; }
+
+.public-layout .btn {
+    padding: 12px 35px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 30px;
+    display: inline-block;
+    margin: 10px;
+}
+.public-layout .btn:hover { transform: scale(1.05); }
+
+.public-layout .footer { background: #333; color: white; text-align: center; padding: 20px; }

@@ -1,0 +1,135 @@
+/* src/css/style.css - Compact Version (Scroll නොකර පිරවිය හැක) */
+
+.auth-layout {
+    font-family: "Poppins", serif;
+    background: linear-gradient(135deg, #06e690, #1b1b1b);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px; /* පොඩි Screen වලට ඉඩ තියන්න */
+}
+
+.auth-layout .register-container {
+    background-color: #fff;
+    
+    /* 👇 පෙට්ටියේ ඇතුලේ ඉඩ අඩු කළා */
+    padding: 20px 30px; 
+    
+    border-radius: 12px;
+    width: 100%;
+    max-width: 380px; /* පළලත් පොඩ්ඩක් අඩු කළා */
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+.auth-layout h1 { 
+    color: #333; 
+    margin-bottom: 2px; /* මාතෘකාව යට ඉඩ අඩු කළා */
+    font-weight: 800;
+    font-size: 24px; /* අකුරු පොඩ්ඩක් පොඩි කළා */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.auth-layout h2 { 
+    color: #555; 
+    margin-bottom: 15px; /* Register වචනය යට ඉඩ අඩු කළා */
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.auth-layout .form-group { 
+    /* 👇 Input Boxes අතර පරතරය ගොඩක් අඩු කළා */
+    margin-bottom: 10px; 
+    text-align: left; 
+}
+
+/* Inputs (පොඩි කළා) */
+.auth-layout input, 
+.auth-layout select {
+    width: 100%;
+    
+    /* 👇 උස අඩු කළා (Padding 15px තිබ්බ එක 10px කළා) */
+    padding: 10px; 
+    
+    background-color: #ffffff !important; 
+    color: #000000 !important; 
+    border: 1px solid #ccc !important;
+    border-radius: 4px;
+    font-size: 14px; /* අකුරුත් පොඩ්ඩක් පොඩි කළා */
+    transition: 0.3s;
+}
+
+.auth-layout input:focus, 
+.auth-layout select:focus {
+    border-color: #06e690 !important;
+    outline: none;
+    box-shadow: 0 0 5px rgba(6, 230, 144, 0.2);
+}
+
+.auth-layout input::placeholder {
+    color: #888 !important;
+}
+
+/* Buttons */
+.auth-layout button {
+    width: 100%;
+    padding: 10px; /* බටන් එකේ උස අඩු කළා */
+    background-color: #161616;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 15px;
+    margin-top: 5px; /* බටන් එකට උඩින් ඉඩ අඩු කළා */
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.auth-layout button:hover {
+    background-color: #06e690;
+    color: #000;
+}
+
+/* Google Button */
+.auth-layout #google-login-button {
+    background-color: #000;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid #333;
+    border-radius: 4px;
+    padding: 10px; /* Google බටන් එකත් පොඩි කළා */
+    margin-top: 10px;
+}
+
+.auth-layout #google-login-button:hover {
+    background-color: #333;
+    color: #fff;
+}
+
+/* යට තියෙන Links */
+.auth-layout p { 
+    margin-top: 10px; 
+    color: #333; 
+    font-size: 14px; 
+}
+
+.auth-layout a { 
+    color: #06e690; 
+    font-weight: bold; 
+    text-decoration: none; 
+}
+
+.auth-layout h4 { 
+    margin-top: 15px; 
+    font-size: 11px; 
+    color: #555; 
+}

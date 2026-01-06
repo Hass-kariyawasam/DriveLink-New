@@ -1,0 +1,137 @@
+/* src/css/style.css - වැඩි දියුණු කළ Design එක */
+
+/* 1. Auth Layout (පසුබිම) */
+.auth-layout {
+    font-family: "Poppins", serif;
+    /* පසුබිම් පාට තව ටිකක් දීප්තිමත් කළා */
+    background: linear-gradient(135deg, #00b09b, #96c93d); /* ඔයාගේ පරණ එක ඕන නම්: linear-gradient(135deg, #06e690, #1b1b1b) */
+    /* නැත්නම් ඔයාගේ කොළ පාටම තියාගන්න පහත එක පාවිච්චි කරන්න: */
+    /* background: linear-gradient(135deg, #06e690, #2c3e50); */
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* 2. Register/Login Box (සුදු පෙට්ටිය) */
+.auth-layout .register-container {
+    background-color: rgba(255, 255, 255, 0.95); /* පොඩි විනිවිද පෙනීමක් (Glass effect) */
+    padding: 40px 30px;
+    border-radius: 15px; /* කොන් රවුම් කළා */
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    
+    /* ලස්සන Shadow එකක් (පෙට්ටිය උඩට ඉලිප්පිලා පේන්න) */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    border-top: 5px solid #06e690; /* උඩින් කොළ පාට ඉරක් */
+}
+
+/* 3. මාතෘකා (Headings) */
+.auth-layout h1 { 
+    color: #06e690; /* ප්‍රධාන නම කොළ පාටින් */
+    margin-bottom: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.auth-layout h2 { 
+    color: #333; 
+    margin-bottom: 25px;
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+/* 4. Inputs (ලිවීමේ තීරු) */
+.auth-layout .form-group { 
+    margin-bottom: 20px; 
+    text-align: left; 
+}
+
+.auth-layout input, 
+.auth-layout select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #eee; /* ලා පාට බෝඩරයක් */
+    border-radius: 8px;
+    font-size: 15px;
+    color: #333;
+    background-color: #f9f9f9;
+    transition: all 0.3s ease; /* ස්මූත් වෙනසක් */
+}
+
+/* Input එක Click කළාම පාට වෙනස් වෙන්න */
+.auth-layout input:focus, 
+.auth-layout select:focus {
+    border-color: #06e690; /* කොළ පාට බෝඩරය */
+    background-color: #fff;
+    outline: none;
+    box-shadow: 0 0 10px rgba(6, 230, 144, 0.2); /* වටේට පොඩි එළියක් */
+}
+
+/* 5. Buttons (බටන්ස්) */
+.auth-layout button {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(to right, #161616, #333); /* කලු පාට Gradient එකක් */
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 15px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* බටන් එක උඩට මවුස් එක ගෙනිච්චම */
+.auth-layout button:hover {
+    background: linear-gradient(to right, #06e690, #04c076); /* කොළ පාටට හැරෙනවා */
+    transform: translateY(-2px); /* පොඩ්ඩක් උඩට එනවා */
+    box-shadow: 0 5px 15px rgba(6, 230, 144, 0.4); /* යටින් Shadow එකක් */
+}
+
+/* Google Button */
+.auth-layout #google-login-button {
+    background: white;
+    color: #333;
+    border: 2px solid #eee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.auth-layout #google-login-button:hover {
+    background: #f1f1f1;
+    border-color: #ddd;
+    box-shadow: none;
+    transform: none;
+}
+
+/* Links */
+.auth-layout a {
+    color: #06e690;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.auth-layout a:hover {
+    text-decoration: underline;
+}
+
+/* Footer text */
+.auth-layout h4 {
+    margin-top: 25px;
+    font-size: 12px;
+    color: #aaa;
+}

@@ -1,0 +1,123 @@
+/* src/css/style.css - ඔයාගේ අලුත් අවශ්‍යතාවයට සකසන ලදී */
+
+/* 1. Auth Layout (පසුබිම පරණ විදියටම) */
+.auth-layout {
+    font-family: "Poppins", serif;
+    background: linear-gradient(135deg, #06e690, #1b1b1b);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* 2. Register/Login Box */
+.auth-layout .register-container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+/* 3. මාතෘකා */
+.auth-layout h1 { 
+    color: #333; 
+    margin-bottom: 5px; 
+    font-weight: 800;
+    font-size: 28px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.auth-layout h2 { 
+    color: #555; 
+    margin-bottom: 20px; 
+    font-weight: 500;
+}
+
+.auth-layout .form-group { 
+    margin-bottom: 20px; /* පරතරය ටිකක් වැඩි කළා */
+    text-align: left; 
+}
+
+/* 4. Inputs (මෙන්න ඔයා ඉල්ලපු වෙනස්කම්) */
+.auth-layout input, 
+.auth-layout select {
+    width: 100%;
+    
+    /* 👇 උස වැඩි කළා (padding 15px දාලා) */
+    padding: 15px; 
+    
+    /* 👇 කළු පාට නැතුව සුදු පාට කළා */
+    background-color: #fff; 
+    color: #333;
+    
+    /* 👇 Radius අඩු කරලා Box Type එකට ගත්තා (3px) */
+    border-radius: 3px; 
+    
+    border: 1px solid #ccc; /* පාට අඩු බෝඩර් එකක් */
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+/* Input එක Click කළාම */
+.auth-layout input:focus, 
+.auth-layout select:focus {
+    border-color: #000000; /* Click කළාම බෝඩර් එක කොළ පාට වෙනවා */
+    outline: none;
+    background-color: #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Placeholder පාට */
+.auth-layout input::placeholder {
+    color: #aaa;
+}
+
+/* 5. Main Buttons */
+.auth-layout button {
+    width: 100%;
+    padding: 14px; /* බටන් එකත් ටිකක් උස කළා */
+    background-color: #161616;
+    color: #fff;
+    border: none;
+    border-radius: 3px; /* බටන් එකත් Box Type කළා */
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.auth-layout button:hover {
+    background-color: #06e690;
+    color: #000;
+}
+
+/* 6. Google Button */
+.auth-layout #google-login-button {
+    background-color: #000;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid #333;
+    border-radius: 3px; /* මේකත් Box Type */
+}
+
+.auth-layout #google-login-button:hover {
+    background-color: #333;
+    color: #fff;
+}
+
+/* Links & Footer */
+.auth-layout p { margin-top: 15px; color: #333; }
+.auth-layout a { color: #06e690; font-weight: bold; text-decoration: none; }
+.auth-layout h4 { margin-top: 20px; font-size: 12px; color: #555; }

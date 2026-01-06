@@ -1,0 +1,186 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* style.css ඇතුලේ */
+.auth-body {
+    font-family: "Poppins", serif;
+    background: linear-gradient(135deg, #06e690, #1b1b1b);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%; /* මේකත් එකතු කරන්න */
+    position: fixed; /* හරියටම මැදට එන්න */
+    top: 0; left: 0;
+}
+
+.register-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+}
+
+.register-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.register-container h1 {
+    text-align: center;
+    margin-bottom: 5px;
+}
+.register-container h4 {
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+/* Form Styling */
+.form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group select {
+    font-family: "Poppins", serif;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+
+button {
+    font-family: "Poppins", serif;
+    padding: 10px;
+    background-color: #161616;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #06e690;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    .register-container {
+        padding: 15px;
+    }
+
+    .form-group input {
+        font-size: 14px;
+    }
+
+    button {
+        font-size: 14px;
+    }
+}
+.login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center horizontally */
+    margin-top: -25px;
+  }
+  .login-container1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center horizontally */
+
+  }
+
+  #google-login-button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    margin-top: 10px; /* Add spacing */
+  }
+
+  #google-login-button img {
+    width: 16px;
+    height: 16px;
+  }
+
+  /* Toast Notification Styles */
+.toast {
+    visibility: hidden; /* Hidden by default */
+    min-width: 250px; /* Set a minimum width */
+    background-color: #3a3a3a; /* Dark background */
+    font-size: larger;
+    
+    font-family: Poppins, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    
+    color: #ffffff; /* White text */
+    text-align: center; /* Centered text */
+    border-radius: 20px; /* Rounded corners */
+    padding: 16px; /* Padding */
+    position: fixed; /* Fixed position */
+    z-index: 1000; /* Ensure it's on top */
+    bottom: 50%; /* Position at the bottom */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Center horizontally */
+    opacity: 0; /* Start fully transparent */
+    transition: opacity 0.5s, visibility 0.7; /* Smooth transition */
+}
+
+/* Show the toast */
+.toast.show {
+    visibility: visible; /* Make it visible */
+    opacity: 1; /* Fully opaque */
+}
+/* Blur Overlay Styles */
+.blur-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+    backdrop-filter: blur(5px); /* Apply blur effect */
+    z-index: 999; /* Ensure it's above other content */
+    display: none; /* Hidden by default */
+}
+
+/* Apply blur to the entire page when the overlay is visible */
+body.blurred {
+    overflow: hidden; /* Prevent scrolling */
+}
+
+body.blurred .blur-overlay {
+    display: block; /* Show the blur overlay */
+}
+
+
+
+  

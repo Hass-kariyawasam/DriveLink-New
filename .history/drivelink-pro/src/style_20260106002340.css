@@ -1,0 +1,116 @@
+/* src/css/style.css - Fixed Inputs Colors */
+
+.auth-layout {
+    font-family: "Poppins", serif;
+    background: linear-gradient(135deg, #06e690, #1b1b1b);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.auth-layout .register-container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+.auth-layout h1 { 
+    color: #333; 
+    margin-bottom: 5px; 
+    font-weight: 800;
+    font-size: 28px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.auth-layout h2 { 
+    color: #555; 
+    margin-bottom: 20px; 
+    font-weight: 500;
+}
+
+.auth-layout .form-group { 
+    margin-bottom: 20px; 
+    text-align: left; 
+}
+
+/* 👇 මෙන්න මේ කොටස තමයි වෙනස් කළේ (Inputs බලෙන්ම සුදු කළා) */
+.auth-layout input, 
+.auth-layout select {
+    width: 100%;
+    padding: 15px; /* උස වැඩි කළා */
+    
+    /* !important දැම්මම පරණ කළු පාට අනිවාර්යයෙන්ම අයින් වෙනවා */
+    background-color: #ffffff !important; 
+    color: #000000 !important; 
+    
+    border: 1px solid #ccc !important;
+    border-radius: 4px; /* Box Type එකට ලඟ රවුම් ගතියක් */
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+/* Click කළාම */
+.auth-layout input:focus, 
+.auth-layout select:focus {
+    background-color: #ffffff !important; /* Click කළත් සුදු පාටමයි */
+    color: #000000 !important;
+    border-color: #06e690 !important; /* බෝඩර් එක කොළ පාටයි */
+    outline: none;
+    box-shadow: 0 0 5px rgba(6, 230, 144, 0.2);
+}
+
+/* Placeholder (type කරන්න කලින් තියෙන අකුරු) */
+.auth-layout input::placeholder {
+    color: #888 !important;
+}
+
+/* Buttons */
+.auth-layout button {
+    width: 100%;
+    padding: 14px;
+    background-color: #161616;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.auth-layout button:hover {
+    background-color: #06e690;
+    color: #000;
+}
+
+/* Google Button */
+.auth-layout #google-login-button {
+    background-color: #000;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid #333;
+    border-radius: 4px;
+}
+
+.auth-layout #google-login-button:hover {
+    background-color: #333;
+    color: #fff;
+}
+
+.auth-layout p { margin-top: 15px; color: #333; }
+.auth-layout a { color: #06e690; font-weight: bold; text-decoration: none; }
+.auth-layout h4 { margin-top: 20px; font-size: 12px; color: #555; }

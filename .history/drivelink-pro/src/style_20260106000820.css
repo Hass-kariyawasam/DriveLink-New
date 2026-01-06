@@ -1,0 +1,71 @@
+/* Login සහ Register සඳහා විශේෂිත වූ CSS */
+
+.auth-layout {
+    font-family: "Poppins", serif;
+    background: linear-gradient(135deg, #06e690, #1b1b1b);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.auth-layout .register-container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.auth-layout h1, 
+.auth-layout h2 { 
+    color: #d81515; 
+    margin-bottom: 15px; 
+}
+
+.auth-layout .form-group { 
+    margin-bottom: 15px; 
+    text-align: left; 
+}
+
+/* Input සහ Button වලට විශේෂිතව */
+.auth-layout input, 
+.auth-layout select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #333;
+    background-color: #fff;
+}
+
+.auth-layout button {
+    width: 100%;
+    padding: 12px;
+    background-color: #161616;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.auth-layout button:hover {
+    background-color: #06e690;
+    color: black;
+}
+
+.auth-layout #google-login-button {
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}

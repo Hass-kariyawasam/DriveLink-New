@@ -1,0 +1,131 @@
+/* src/css/style.css - ඔයාගේ අවශ්‍යතාවයට සකසන ලදී */
+
+/* 1. Auth Layout (පරණ Gradient එකම දැම්මා) */
+.auth-layout {
+    font-family: "Poppins", serif;
+    background: linear-gradient(135deg, #06e690, #1b1b1b); /* ඔයාගේ පරණ පාට */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* 2. Register/Login Box (සුදු පෙට්ටිය) */
+.auth-layout .register-container {
+    background-color: #fff; /* පෙට්ටිය සුදු පාටයි */
+    padding: 30px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3); /* ලස්සන Shadow එකක් */
+}
+
+/* 3. මාතෘකා (DriveLink Bold කළා) */
+.auth-layout h1 { 
+    color: #333; 
+    margin-bottom: 5px; 
+    font-weight: 800; /* හොඳටම Bold කළා */
+    font-size: 28px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.auth-layout h2 { 
+    color: #555; 
+    margin-bottom: 20px; 
+    font-weight: 500;
+}
+
+.auth-layout .form-group { 
+    margin-bottom: 15px; 
+    text-align: left; 
+}
+
+/* 4. Inputs (පෙට්ටිය කළු පාට කළා) */
+.auth-layout input, 
+.auth-layout select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #333;
+    border-radius: 5px;
+    font-size: 16px;
+    
+    /* 👇 ඔයා ඉල්ලපු කළු පාට Input Box එක */
+    background-color: #1b1b1b; 
+    color: #fff; /* Type කරන අකුරු සුදු පාටයි */
+}
+
+/* Input එක Click කළාම */
+.auth-layout input:focus, 
+.auth-layout select:focus {
+    border-color: #06e690;
+    outline: none;
+    background-color: #000; /* තවත් තද කළු */
+}
+
+/* Placeholder (type කරන්න කලින් තියෙන අකුරු) අළු පාටින් */
+.auth-layout input::placeholder {
+    color: #bbb;
+}
+
+/* 5. Main Buttons (Login/Register) */
+.auth-layout button {
+    width: 100%;
+    padding: 12px;
+    background-color: #161616;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.auth-layout button:hover {
+    background-color: #06e690;
+    color: #000; /* Hover කළාම අකුරු කළු වෙනවා */
+}
+
+/* 6. Google Button Hover Fix */
+.auth-layout #google-login-button {
+    background-color: #000;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid #333;
+}
+
+/* Google Button එක උඩට ගියාම */
+.auth-layout #google-login-button:hover {
+    background-color: #333; /* පසුබිම අළු පාට වෙනවා */
+    color: #fff; /* අකුරු සුදු පාටින්ම තියෙනවා (දැන් නැති වෙන්නේ නෑ) */
+}
+
+/* Links (Register here link) */
+.auth-layout p {
+    margin-top: 15px;
+    color: #333;
+}
+
+.auth-layout a {
+    color: #06e690;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/* 7. Footer Text (පහළම තියෙන පොඩි අකුරු) */
+.auth-layout h4 {
+    margin-top: 20px;
+    font-size: 12px;
+    /* 👇 කලින් සුදු පාට නිසා පෙනුනේ නෑ, දැන් අළු පාට කළා */
+    color: #555; 
+}

@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+/* Reset */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* Home Page Body */
+.home-body {
+    font-family: "Poppins", sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Navbar */
+.navbar {
+    background-color: #333;
+    padding: 15px 0;
+    position: fixed; /* උඩම රැඳිලා තියෙන්න */
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.navbar-logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #06e690; /* Green Logo */
+    text-decoration: none;
+}
+
+.navbar-menu { display: flex; list-style: none; gap: 20px; }
+.navbar-menu a { text-decoration: none; color: white; transition: 0.3s; }
+.navbar-menu a:hover { color: #06e690; }
+
+/* HERO SECTION (මැද කොටස) */
+.hero {
+    /* Gradient Background */
+    background: linear-gradient(135deg, #06e690, #1b1b1b);
+    color: white;
+    height: 80vh; /* Screen එකෙන් 80% ක් උසයි */
+    display: flex;
+    flex-direction: column; /* උඩ ඉඳන් පහළට */
+    justify-content: center; /* හරියටම මැදට */
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    margin-top: 60px; /* Navbar එකට ඉඩ දෙන්න */
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.project-desc {
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin-bottom: 30px;
+    line-height: 1.6;
+    opacity: 0.9;
+}
+
+/* Buttons */
+.btn-container {
+    display: flex;
+    gap: 20px;
+}
+
+.btn {
+    padding: 12px 35px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 30px;
+    transition: 0.3s;
+}
+
+.primary-btn {
+    background-color: white;
+    color: #333;
+}
+
+.secondary-btn {
+    background-color: #333;
+    color: white;
+    border: 2px solid #333;
+}
+
+.btn:hover {
+    transform: scale(1.05); /* මවුස් එක ගෙනිච්චම පොඩ්ඩක් ලොකු වෙන්න */
+}
+
+/* FEATURES SECTION (පහළ කොටස) */
+.features {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 50px 20px;
+    flex-wrap: wrap;
+}
+
+.feature-card {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    width: 300px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.feature-card h3 { color: #06e690; margin-bottom: 10px; }
+
+/* Footer */
+.footer {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}

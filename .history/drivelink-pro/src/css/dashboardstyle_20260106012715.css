@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --base-clr: #11121a;
+    --line-clr: #42434a;
+    --hover-clr: #222533;
+    --text-clr: #EEEEEE;
+    --accent-clr: #C4FB6D;
+    --primary: #3699ff;
+    --dark-bg: #11121a;
+    --dark-sidebar: #1a1a27;
+    --dark-content: #2b2b40;
+    --dark-text: #e8eaed;
+    --dark-text-secondary: #9899ac;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { font-family: 'Poppins', sans-serif; }
+
+/* 1. Body එක නිවැරදි කිරීම (Grid අයින් කළා) */
+body {
+    min-height: 100vh;
+    background-color: var(--dark-bg);
+    color: var(--dark-text);
+    overflow-x: hidden;
+}
+
+/* 2. Main Layout (Flexbox භාවිතා කිරීම) */
+.dashboard-app {
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
+    background-color: var(--dark-bg);
+}
+
+/* 3. Sidebar (එක වරක් පමණක් ලිවීම) */
+#sidebar {
+    width: 260px;
+    height: 100vh;
+    background-color: var(--base-clr);
+    border-right: 1px solid var(--line-clr);
+    position: sticky;
+    top: 0;
+    left: 0;
+    flex-shrink: 0;
+    transition: width 0.3s ease;
+    z-index: 100;
+    overflow-y: auto;
+}
+
+#sidebar.expanded { width: 260px; }
+#sidebar:not(.expanded) { width: 70px; }
+
+/* 4. Main Content Area (ඉතුරු ඉඩ සම්පූර්ණයෙන්ම ගැනීම) */
+.dashboard-main {
+    flex-grow: 1;
+    padding: 20px;
+    width: calc(100% - 260px); /* Sidebar එක ඇරුනම ඉතුරු ඉඩ */
+    transition: width 0.3s ease;
+}
+
+/* Sidebar වැහුනම Content එක ලොකු වෙන්න */
+#sidebar:not(.expanded) + .dashboard-main {
+    width: calc(100% - 70px);
+}
+
+/* Responsive Fix (Phone වලට) */
+@media (max-width: 768px) {
+    .dashboard-app { flex-direction: column; }
+    
+    #sidebar {
+        width: 100% !important;
+        height: 60px;
+        position: fixed;
+        bottom: 0;
+        top: auto;
+        display: flex;
+        justify-content: center;
+        border-right: none;
+        border-top: 1px solid var(--line-clr);
+    }
+    
+    .dashboard-main {
+        width: 100%;
+        padding-bottom: 80px;
+    }
+}
+
+/* Widget Styles (කලින් තිබුණු ඒවා) */
+.dashboard-content { display: flex; flex-direction: column; gap: 20px; }
+
+.stats-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.dashboard-widgets {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* ඉඩ අනුව හැදෙන විදිය */
+    gap: 20px;
+}
+
+.stat-card, .widget {
+    background-color: var(--dark-content);
+    border-radius: 10px;
+    padding: 20px;
+}
+
+/* Icons & Text Colors */
+.stat-icon { font-size: 24px; color: var(--primary); }
+.stat-info h3 { color: var(--dark-text-secondary); font-size: 14px; }
+.stat-info p { font-size: 22px; font-weight: 600; color: white; }
+
+/* Widget Headers */
+.widget-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    color: var(--dark-text);
+}
+
+/* Loading Spinner */
+.loading-screen {
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    height: 100vh; width: 100%; position: fixed; top: 0; left: 0;
+    background-color: var(--dark-bg); z-index: 9999;
+}
+.spinner {
+    width: 40px; height: 40px;
+    border: 4px solid rgba(255,255,255,0.1);
+    border-top-color: var(--accent-clr);
+    border-radius: 50%;
+    animation: spin 1s infinite linear;
+}
+@keyframes spin { to { transform: rotate(360deg); } }

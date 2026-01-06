@@ -1,0 +1,257 @@
+/* src/css/dashboardstyle.css - Fixed Version */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+    --base-clr: #11121a;
+    --line-clr: #42434a;
+    --hover-clr: #222533;
+    --text-clr: #EEEEEE;
+    --accent-clr: #C4FB6D;
+    --lightaccent-clr: #7ac502;
+    --secondary-text-clr: #b0b3c1;
+
+    /* Dark mode colors */
+    --dark-bg: #1e1e2d;
+    --dark-sidebar: #1a1a27;
+    --dark-content: #2b2b40;
+    --dark-border: #323248;
+    --dark-text: #e8eaed;
+    --dark-text-secondary: #9899ac;
+    --dark-hover: #2b2b40;
+    --dark-active: #2b2b40;
+    
+    /* Accent colors */
+    --primary: #3699ff;
+    --success: #1bc5bd;
+    --warning: #ffa800;
+    --danger: #f64e60;
+    --info: #8950fc;
+    
+    --transition-speed: 0.3s;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: Poppins, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.5rem;
+}
+
+/* 1. Body එක නිවැරදි කිරීම (Grid අයින් කළා) */
+body {
+    min-height: 100vh;
+    background-color: var(--dark-bg);
+    color: var(--dark-text);
+    transition: background-color var(--transition-speed), color var(--transition-speed);
+    overflow-x: hidden; /* හරහට Scroll වෙන එක නැවැත්තුවා */
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background-color: transparent; }
+::-webkit-scrollbar-thumb { background-color: rgba(255, 255, 255, 0.2); border-radius: 4px; }
+
+/* 2. Main Layout Fix (Flexbox) */
+.dashboard-app {
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
+    background-color: #11121a;
+    position: relative;
+}
+
+/* 3. Sidebar Styles */
+#sidebar {
+    position: sticky;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 260px; /* Default Width */
+    background-color: var(--base-clr);
+    border-right: 1px solid var(--line-clr);
+    flex-shrink: 0;
+    z-index: 100;
+    overflow-y: auto;
+    transition: width 0.3s ease-in-out;
+}
+
+/* Sidebar Collapsed State */
+#sidebar:not(.expanded) {
+    width: 70px;
+}
+
+/* 4. Main Content Area (Fix for empty space) */
+.dashboard-main {
+    flex-grow: 1; /* ඉතුරු ඉඩ ඔක්කොම ගන්නවා */
+    padding: 20px;
+    width: 100%; /* සම්පූර්ණ පළල */
+    overflow-x: hidden;
+}
+
+/* Sidebar Elements */
+.sidebar-header {
+    padding: 15px 20px;
+    display: flex;
+    margin-top: 10px;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--dark-border);
+}
+
+.logo-container { display: flex; align-items: center; }
+.logo-img { width: 32px; height: 32px; }
+
+.logo-text {
+    margin-top: 5px; margin-left: 12px; font-size: 1.25rem;
+    font-weight: 600; color: var(--dark-text); transition: opacity var(--transition-speed);
+}
+
+.username-text { padding: 0px; margin-left: 20px; }
+
+/* Sidebar Collapsed Logic */
+#sidebar:not(.expanded) .logo-text,
+#sidebar:not(.expanded) .logo-img,
+#sidebar:not(.expanded) .username-text,
+#sidebar:not(.expanded) .sidebar-menu li a span,
+#sidebar:not(.expanded) .sidebar-footer button span,
+#sidebar:not(.expanded) .divider {
+    display: none; opacity: 0;
+}
+
+#sidebar:not(.expanded) .sidebar-menu li a {
+    justify-content: center; padding: 10px;
+}
+#sidebar:not(.expanded) .sidebar-menu li a i { margin-right: 0; }
+#sidebar:not(.expanded) .sidebar-footer { align-items: center; }
+#sidebar:not(.expanded) .sidebar-footer button { justify-content: center; padding: 10px; }
+#sidebar:not(.expanded) .sidebar-footer button i { margin-right: 0; }
+
+/* Toggle Button */
+#toggle-btn {
+    background: transparent; border: none; color: var(--dark-text-secondary);
+    cursor: pointer; padding: 5px; display: flex; align-items: center;
+    justify-content: center; transition: color var(--transition-speed);
+}
+#toggle-btn:hover { color: var(--primary); }
+
+.divider {
+    height: 1px; background-color: var(--dark-border);
+    margin: 0 16px; margin-bottom: 10px; transition: margin var(--transition-speed);
+}
+
+/* Menu Items */
+.sidebar-menu { list-style: none; padding: 5px 0; flex-grow: 1; }
+.sidebar-menu li { margin-bottom: 4px; }
+.sidebar-menu li a {
+    display: flex; align-items: center; padding: 10px 16px;
+    color: var(--dark-text-secondary); text-decoration: none; border-radius: 6px;
+    margin: 0 8px; transition: all var(--transition-speed);
+}
+.sidebar-menu li a i { min-width: 24px; margin-right: 12px; font-size: 18px; text-align: center; }
+.sidebar-menu li a:hover { color: var(--dark-text); background-color: var(--dark-hover); }
+
+.sidebar-menu li.active a {
+    color: var(--accent-clr); background-color: var(--dark-active); font-weight: 500;
+}
+
+/* Submenu */
+.sub-menu { overflow: hidden; max-height: 0; transition: max-height var(--transition-speed); }
+.sidebar-menu li.has-submenu.active .sub-menu { max-height: 500px; }
+.sub-menu li a { margin-top: 5px; padding-left: 52px; }
+
+/* Footer */
+.sidebar-footer {
+    margin-top: 15px; padding: 20px 8px; display: flex; flex-direction: column; gap: 8px;
+}
+.sidebar-footer button {
+    display: flex; align-items: center; padding: 8px 25px; border-radius: 6px;
+    border: none; background-color: transparent; color: var(--dark-text-secondary);
+    cursor: pointer; width: 100%; transition: all var(--transition-speed);
+}
+.sidebar-footer button:hover { background-color: var(--dark-hover); color: var(--dark-text); }
+.sidebar-footer button i { margin-right: 12px; min-width: 24px; text-align: center; }
+.logout-btn { color: var(--danger) !important; }
+.logout-btn:hover { background-color: rgba(246, 78, 96, 0.1) !important; }
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .dashboard-app { flex-direction: column; }
+    #sidebar {
+        position: fixed; bottom: 0; top: auto; width: 100% !important;
+        height: 60px; z-index: 1000; border-top: 1px solid #333;
+        display: flex; align-items: center; justify-content: center;
+        border-right: none;
+    }
+    #sidebar ul { display: flex; flex-direction: row; overflow-x: auto; width: 100%; justify-content: space-around; }
+    #sidebar li { margin: 0; }
+    #sidebar .sidebar-header, #sidebar .sidebar-footer, #sidebar .divider, .username-text { display: none !important; }
+    .dashboard-main { padding-bottom: 80px; width: 100%; }
+}
+
+/* Dashboard Widgets & Content */
+.dashboard-content { display: flex; flex-direction: column; gap: 24px; }
+
+.stats-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+}
+
+.dashboard-widgets {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+}
+
+.stat-card, .widget {
+    background-color: var(--dark-content);
+    border-radius: 8px;
+    padding: 20px;
+    transition: transform 0.2s;
+}
+
+.stat-card:hover, .widget:hover { transform: translateY(-5px); }
+
+/* Headers & Text */
+.header-welcome h1 { color: var(--dark-text); }
+.widget-header {
+    padding-bottom: 15px; border-bottom: 1px solid var(--dark-border);
+    margin-bottom: 15px; display: flex; justify-content: space-between; align-items: center;
+}
+.widget-header h2 { font-size: 16px; font-weight: 600; color: var(--dark-text); }
+
+/* Stat Card specific */
+.stat-info h3 { font-size: 14px; color: var(--dark-text-secondary); margin-bottom: 8px; }
+.stat-info p { font-size: 24px; font-weight: 600; color: var(--dark-text); }
+.stat-icon {
+    width: 48px; height: 48px; border-radius: 12px;
+    background-color: rgba(54, 153, 255, 0.1);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px; color: var(--primary);
+}
+
+/* Loading Spinner */
+.loading-screen {
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    height: 100vh; width: 100%; background-color: #11121a;
+    position: fixed; top: 0; left: 0; z-index: 9999;
+}
+.spinner {
+    width: 50px; height: 50px; border: 5px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50%; border-top-color: #06e690;
+    animation: spin 1s ease-in-out infinite; margin-bottom: 20px;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* Other components (Toast, etc.) - Kept as is */
+.toast-container { position: fixed; top: 20px; right: 20px; z-index: 1000; }
+.blur-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); backdrop-filter: blur(5px);
+    z-index: 999; display: none;
+}

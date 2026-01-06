@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+/* Reset */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* මේක තමයි අලුත් පසුබිම (Full Screen Background) */
+.auth-wrapper {
+    min-height: 100vh; /* Screen එක පුරාම උසයි */
+    width: 100vw;      /* Screen එක පුරාම පළලයි */
+    background: linear-gradient(135deg, #06e690, #1b1b1b); /* ඔයාට ඕන Gradient එක */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;   /* තිරයේ හෙලවෙන්නේ නැතුව තියෙන්න */
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+
+/* Register/Login Box Styles */
+.register-container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    position: relative;
+    z-index: 10; /* පසුබිමට උඩින් පේන්න */
+}
+
+/* Form Styles (පරණ විදියටම) */
+.register-container h1, h2 { color: #333; margin-bottom: 10px; }
+.form { display: flex; flex-direction: column; gap: 15px; }
+.form-group { display: flex; flex-direction: column; text-align: left; }
+.form-group input, .form-group select { padding: 10px; border: 1px solid #ccc; border-radius: 5px; }
+
+/* Buttons */
+button {
+    padding: 12px;
+    background-color: #161616;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+    margin-top: 10px;
+}
+button:hover { background-color: #06e690; color: #000; }
+
+/* Google Button */
+.login-container1 { margin-top: 15px; }
+#google-login-button {
+    background-color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+}
+#google-login-button img { width: 20px; height: 20px; }

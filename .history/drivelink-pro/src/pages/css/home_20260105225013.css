@@ -1,0 +1,18 @@
+/* Home Page Specific Styles */
+.home-hero {
+    height: 100vh;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://source.unsplash.com/random/1920x1080/?technology');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+}
+
+.home-hero h1 { font-size: 3.5rem; margin-bottom: 20px; }
+.home-hero p { font-size: 1.2rem; margin-bottom: 30px; }
+.cta-btn { padding: 12px 30px; background: #ff5722; color: white; text-decoration: none; border-radius: 5px; font-weight: bold; }
+.cta-btn:hover { background: #e64a19; }
