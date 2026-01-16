@@ -1,0 +1,514 @@
+/* src/css/reminders.css - MODERN REDESIGN */
+
+/* ===========================================
+   HEADER & BUTTON
+   =========================================== */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.add-reminder-btn {
+    background: linear-gradient(135deg, #3699ff, #2b7ac9);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s;
+    box-shadow: 0 4px 15px rgba(54, 153, 255, 0.3);
+}
+
+.add-reminder-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(54, 153, 255, 0.4);
+}
+
+/* ===========================================
+   SUMMARY STATS
+   =========================================== */
+.reminder-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.stat-box {
+    background: linear-gradient(135deg, #1e1e2d 0%, #252538 100%);
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    transition: all 0.3s;
+}
+
+.stat-box:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+.stat-box i {
+    font-size: 28px;
+    color: #3699ff;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(54, 153, 255, 0.1);
+    border-radius: 10px;
+}
+
+.stat-box .stat-label {
+    display: block;
+    font-size: 11px;
+    color: #8fa2b6;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.stat-box .stat-value {
+    display: block;
+    font-size: 24px;
+    font-weight: 700;
+    color: white;
+}
+
+/* ===========================================
+   REMINDERS GRID
+   =========================================== */
+.reminders-grid-modern {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 20px;
+}
+
+.reminder-card-modern {
+    background: linear-gradient(135deg, #1e1e2d 0%, #252538 100%);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    overflow: hidden;
+    transition: all 0.3s;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.reminder-card-modern:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    border-color: rgba(54, 153, 255, 0.3);
+}
+
+.reminder-card-modern.overdue {
+    border-color: rgba(246, 78, 96, 0.3);
+}
+
+.card-accent {
+    height: 4px;
+    width: 100%;
+}
+
+.card-header-modern {
+    padding: 15px 20px 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.category-badge {
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    letter-spacing: 0.5px;
+}
+
+.category-badge i {
+    font-size: 12px;
+}
+
+.delete-btn-modern {
+    background: none;
+    border: none;
+    color: #6c7293;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 6px;
+    transition: all 0.2s;
+    font-size: 14px;
+}
+
+.delete-btn-modern:hover {
+    background: rgba(246, 78, 96, 0.1);
+    color: #f64e60;
+}
+
+.card-body-modern {
+    padding: 20px;
+}
+
+.reminder-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: white;
+    margin: 0 0 10px 0;
+    line-height: 1.3;
+}
+
+.reminder-description {
+    color: #a2a2c2;
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+.reminder-datetime {
+    display: flex;
+    gap: 15px;
+    padding: 12px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.datetime-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #8fa2b6;
+    font-size: 13px;
+}
+
+.datetime-item i {
+    color: #3699ff;
+    font-size: 12px;
+}
+
+.overdue-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    background: rgba(246, 78, 96, 0.1);
+    color: #f64e60;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    margin-top: 12px;
+}
+
+/* ===========================================
+   EMPTY STATE
+   =========================================== */
+.empty-state-modern {
+    text-align: center;
+    padding: 80px 20px;
+    background: linear-gradient(135deg, #1e1e2d 0%, #252538 100%);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.empty-state-modern i {
+    font-size: 80px;
+    color: #3699ff;
+    margin-bottom: 20px;
+    opacity: 0.3;
+}
+
+.empty-state-modern h3 {
+    color: white;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.empty-state-modern p {
+    color: #8fa2b6;
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+
+.add-first-btn {
+    background: linear-gradient(135deg, #3699ff, #2b7ac9);
+    color: white;
+    border: none;
+    padding: 14px 28px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s;
+}
+
+.add-first-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(54, 153, 255, 0.4);
+}
+
+/* ===========================================
+   MODAL
+   =========================================== */
+.modal-overlay-modern {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    animation: fadeIn 0.2s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.modal-modern {
+    background: #1e1e2d;
+    width: 90%;
+    max-width: 500px;
+    max-height: 90vh;
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    overflow-y: auto;
+    animation: slideUp 0.3s;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.modal-header-modern {
+    padding: 25px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header-modern h2 {
+    color: white;
+    font-size: 20px;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.modal-header-modern h2 i {
+    color: #3699ff;
+}
+
+.close-btn-modern {
+    background: none;
+    border: none;
+    color: #6c7293;
+    cursor: pointer;
+    font-size: 24px;
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+.close-btn-modern:hover {
+    background: rgba(255, 255, 255, 0.05);
+    color: white;
+}
+
+.modal-form {
+    padding: 25px;
+}
+
+.form-group-modern {
+    margin-bottom: 20px;
+}
+
+.form-group-modern label {
+    display: block;
+    color: #8fa2b6;
+    margin-bottom: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.form-group-modern label i {
+    color: #3699ff;
+    font-size: 12px;
+}
+
+.form-group-modern input,
+.form-group-modern select,
+.form-group-modern textarea {
+    width: 100%;
+    padding: 12px 15px;
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: white;
+    font-size: 14px;
+    outline: none;
+    transition: all 0.2s;
+}
+
+.form-group-modern input:focus,
+.form-group-modern select:focus,
+.form-group-modern textarea:focus {
+    border-color: #3699ff;
+    background: rgba(54, 153, 255, 0.05);
+}
+
+.form-group-modern textarea {
+    resize: vertical;
+    min-height: 80px;
+    font-family: inherit;
+}
+
+.form-row-modern {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.submit-btn-modern {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, #3699ff, #2b7ac9);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: all 0.3s;
+    margin-top: 10px;
+}
+
+.submit-btn-modern:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(54, 153, 255, 0.4);
+}
+
+.submit-btn-modern:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* ===========================================
+   MOBILE RESPONSIVE
+   =========================================== */
+@media (max-width: 768px) {
+    .reminder-stats {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .stat-box {
+        padding: 15px;
+    }
+
+    .stat-box i {
+        font-size: 24px;
+        width: 45px;
+        height: 45px;
+    }
+
+    .reminders-grid-modern {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .reminder-card-modern {
+        border-radius: 12px;
+    }
+
+    .reminder-title {
+        font-size: 16px;
+    }
+
+    .reminder-description {
+        font-size: 13px;
+    }
+
+    .reminder-datetime {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .modal-modern {
+        width: 95%;
+        max-height: 85vh;
+    }
+
+    .modal-header-modern {
+        padding: 20px;
+    }
+
+    .modal-header-modern h2 {
+        font-size: 18px;
+    }
+
+    .modal-form {
+        padding: 20px;
+    }
+
+    .form-row-modern {
+        grid-template-columns: 1fr;
+    }
+
+    .empty-state-modern {
+        padding: 60px 20px;
+    }
+
+    .empty-state-modern i {
+        font-size: 60px;
+    }
+
+    .empty-state-modern h3 {
+        font-size: 20px;
+    }
+
+    .add-reminder-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}

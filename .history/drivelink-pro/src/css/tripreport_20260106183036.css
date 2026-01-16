@@ -1,0 +1,136 @@
+/* src/css/tripreport.css */
+
+.tr-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* --- SUMMARY CARDS --- */
+.tr-summary-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.tr-stat-card {
+    background: #1e1e2d;
+    padding: 20px;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.tr-icon-box {
+    width: 50px; height: 50px; border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px; background: rgba(255, 255, 255, 0.05);
+}
+
+.tr-info h3 { font-size: 12px; color: #8fa2b6; margin-bottom: 5px; text-transform: uppercase; }
+.tr-info span { font-size: 24px; font-weight: 700; color: #fff; }
+
+/* --- TABLE STYLES --- */
+.tr-list-wrapper {
+    background: #1e1e2d; border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 20px; overflow-x: auto;
+}
+
+.tr-table { width: 100%; border-collapse: collapse; min-width: 600px; }
+.tr-table th { text-align: left; padding: 15px; color: #8fa2b6; font-size: 12px; text-transform: uppercase; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+.tr-table td { padding: 15px; color: #fff; font-size: 14px; border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+.tr-table tr:hover { background: rgba(255, 255, 255, 0.02); }
+.tr-date { font-weight: 600; color: #3699ff !important; }
+.tr-cost { color: #f64e60 !important; font-weight: 700; }
+
+.tr-btn-view {
+    background: rgba(54, 153, 255, 0.1); color: #3699ff; border: none;
+    padding: 8px 15px; border-radius: 8px; cursor: pointer;
+    font-size: 12px; font-weight: 600; transition: 0.2s;
+}
+.tr-btn-view:hover { background: #3699ff; color: white; }
+
+/* --- NEW MAP MODAL DESIGN --- */
+.tr-modal-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.9); backdrop-filter: blur(8px);
+    z-index: 2000; display: flex; align-items: center; justify-content: center;
+    animation: fadeIn 0.3s;
+}
+
+.tr-modal-content {
+    width: 95%; max-width: 900px; height: 85vh;
+    background: #151521; border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex; flex-direction: column; overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+}
+
+/* Header Bar inside Modal */
+.tr-map-header {
+    padding: 15px 25px;
+    background: #1e1e2d;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex; justify-content: space-between; align-items: center;
+}
+
+.tr-trip-title h2 { margin: 0; font-size: 18px; color: white; }
+.tr-trip-meta { font-size: 12px; color: #8fa2b6; margin-top: 4px; display: flex; gap: 15px; }
+.tr-meta-item i { margin-right: 5px; }
+
+.tr-close-btn {
+    background: rgba(255, 255, 255, 0.1); border: none; color: white;
+    width: 35px; height: 35px; border-radius: 50%;
+    cursor: pointer; display: flex; align-items: center; justify-content: center;
+    transition: 0.2s;
+}
+.tr-close-btn:hover { background: #f64e60; }
+
+.tr-modal-body { flex: 1; position: relative; }
+#report-map { width: 100%; height: 100%; }
+
+/* --- CUSTOM MARKER CSS (L.DivIcon) --- */
+.custom-marker {
+    display: flex; align-items: center; justify-content: center;
+    position: relative;
+}
+
+.marker-pin {
+    width: 30px; height: 30px; border-radius: 50% 50% 50% 0;
+    transform: rotate(-45deg);
+    position: absolute; top: -15px; left: -15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    border: 2px solid white;
+}
+
+.marker-icon {
+    position: absolute; top: -22px; left: 0; transform: translateX(-50%);
+    color: white; font-size: 14px; z-index: 10;
+}
+
+/* Colors */
+.marker-start .marker-pin { background: #1bc5bd; } /* Green */
+.marker-end .marker-pin { background: #f64e60; }   /* Red */
+.marker-stop .marker-pin { background: #ffa800; border-radius: 50%; transform: rotate(0); } /* Yellow Circle */
+.marker-stop .marker-icon { top: -20px; font-size: 12px; color: #1e1e2d; font-weight: 800; }
+
+/* Pulse Animation for Start */
+.marker-start::after {
+    content: ''; width: 20px; height: 20px; background: rgba(27, 197, 189, 0.4);
+    border-radius: 50%; position: absolute; top: -10px; left: -10px;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse { 0% { transform: scale(1); opacity: 1; } 100% { transform: scale(3); opacity: 0; } }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+/* Mobile */
+@media (max-width: 768px) {
+    .tr-summary-grid { grid-template-columns: 1fr; }
+    .tr-map-header { flex-direction: column; align-items: flex-start; gap: 10px; }
+    .tr-close-btn { position: absolute; top: 10px; right: 10px; }
+}

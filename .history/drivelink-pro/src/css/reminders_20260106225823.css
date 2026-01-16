@@ -1,0 +1,121 @@
+/* src/css/reminders.css */
+
+.rem-container {
+    padding-top: 20px;
+}
+
+/* Add Button */
+.btn-add-rem {
+    background: #3699ff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: 0.2s;
+}
+.btn-add-rem:hover { background: #2b7ac9; }
+
+/* Grid Layout */
+.rem-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+/* Reminder Card */
+.rem-card {
+    background: #1e1e2d;
+    padding: 20px;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+    transition: 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.rem-card:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,0.3); }
+
+/* Status Colors (Left Border) */
+.rem-card::before {
+    content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px;
+    background: #22c55e; /* Default Green */
+}
+.rem-card.urgent::before { background: #ffa800; }
+.rem-card.overdue::before { background: #f64e60; }
+
+.rem-icon-box {
+    width: 45px; height: 45px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px; color: #8fa2b6;
+}
+
+.rem-details { flex: 1; }
+
+.rem-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px; }
+.rem-type { font-size: 10px; text-transform: uppercase; color: #8fa2b6; letter-spacing: 1px; }
+
+.btn-del-mini {
+    background: transparent; border: none; color: #555; cursor: pointer; font-size: 14px;
+}
+.btn-del-mini:hover { color: #f64e60; }
+
+.rem-details h3 { margin: 0 0 10px 0; color: white; font-size: 16px; }
+
+.rem-date-row {
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 13px; color: #b5b5c3;
+}
+
+.days-badge {
+    padding: 3px 10px; border-radius: 12px; font-size: 11px; font-weight: 600;
+}
+.days-badge.green { background: rgba(34, 197, 94, 0.15); color: #22c55e; }
+.days-badge.orange { background: rgba(255, 168, 0, 0.15); color: #ffa800; }
+.days-badge.red { background: rgba(246, 78, 96, 0.15); color: #f64e60; }
+
+/* Empty State */
+.empty-rem-state {
+    text-align: center; padding: 50px 20px; color: #8fa2b6;
+    background: rgba(255,255,255,0.02); border-radius: 16px; border: 1px dashed rgba(255,255,255,0.1);
+}
+.empty-rem-state i { font-size: 40px; margin-bottom: 15px; color: #3699ff; opacity: 0.5; }
+
+/* Modal */
+.modal-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.7); backdrop-filter: blur(3px);
+    display: flex; align-items: center; justify-content: center; z-index: 2000;
+}
+
+.modal-box {
+    background: #1e1e2d; width: 90%; max-width: 400px;
+    padding: 25px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.1);
+}
+
+.modal-header { display: flex; justify-content: space-between; margin-bottom: 20px; }
+.modal-header h2 { margin: 0; color: white; font-size: 20px; }
+.modal-header button { background: none; border: none; color: #8fa2b6; cursor: pointer; font-size: 20px; }
+
+.input-group { margin-bottom: 15px; }
+.input-group label { display: block; color: #8fa2b6; font-size: 12px; margin-bottom: 5px; }
+.input-group input, .input-group select {
+    width: 100%; padding: 10px; background: #151521; border: 1px solid #323248;
+    color: white; border-radius: 8px; outline: none;
+}
+.input-group input:focus { border-color: #3699ff; }
+
+.btn-save-rem {
+    width: 100%; background: #3699ff; color: white; padding: 12px;
+    border: none; border-radius: 8px; font-weight: 600; cursor: pointer; margin-top: 10px;
+}
+.btn-save-rem:hover { background: #2b7ac9; }

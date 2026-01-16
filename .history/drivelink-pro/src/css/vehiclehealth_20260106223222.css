@@ -1,0 +1,140 @@
+/* src/css/vehiclehealth.css */
+
+.vh-container { display: flex; flex-direction: column; gap: 25px; }
+
+/* --- HERO SECTION --- */
+.vh-hero-split {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 20px;
+}
+
+.hero-box {
+    background: #1e1e2d;
+    border-radius: 16px;
+    padding: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Health Score Circle */
+.score-circle-outer { width: 90px; height: 90px; position: relative; }
+.circular-chart { display: block; margin: 0 auto; max-width: 100%; max-height: 250px; }
+.circle-bg { fill: none; stroke: rgba(255, 255, 255, 0.1); stroke-width: 3; }
+.circle { fill: none; stroke-width: 3; stroke-linecap: round; animation: progress 1s ease-out forwards; }
+.score-text {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    text-align: center; display: flex; flex-direction: column;
+}
+.score-text .label { font-size: 9px; color: #8fa2b6; text-transform: uppercase; }
+.score-text .value { font-size: 20px; font-weight: 700; color: white; }
+
+.hero-text h3 { margin: 0; font-size: 16px; color: #fff; }
+.hero-text p { margin: 5px 0 0; color: #8fa2b6; font-size: 13px; }
+
+/* Service Monitor */
+.service-monitor { display: block; }
+.service-header { display: flex; align-items: center; gap: 15px; margin-bottom: 20px; }
+.service-header .icon-box {
+    width: 45px; height: 45px; background: rgba(54, 153, 255, 0.15); color: #3699ff;
+    border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px;
+}
+.service-header h3 { margin: 0; font-size: 16px; color: white; }
+.service-header .sub { font-size: 12px; color: #8fa2b6; }
+
+.service-bar-container { width: 100%; }
+.service-labels { display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 13px; color: #ccc; }
+.progress-track { width: 100%; height: 10px; background: rgba(255, 255, 255, 0.1); border-radius: 5px; overflow: hidden; }
+.progress-fill { height: 100%; border-radius: 5px; transition: width 0.5s ease; }
+.service-remaining { margin-top: 10px; font-size: 13px; color: #8fa2b6; text-align: right; }
+.service-remaining strong { color: white; margin-right: 4px; }
+
+/* --- STATS GRID --- */
+.vh-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.stat-card {
+    background: #1e1e2d;
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    transition: 0.3s;
+}
+.stat-card:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+
+.stat-card .icon { font-size: 24px; opacity: 0.8; }
+.stat-card .label { display: block; font-size: 11px; color: #8fa2b6; text-transform: uppercase; letter-spacing: 0.5px; }
+.stat-card .value { display: block; font-size: 18px; font-weight: 700; color: white; margin-top: 2px; }
+
+/* Icon Colors */
+.icon.blue { color: #3699ff; }
+.icon.green { color: #22c55e; }
+.icon.orange { color: #f59e0b; }
+.icon.red { color: #ef4444; }
+.icon.purple { color: #8b5cf6; }
+.icon.yellow { color: #eab308; }
+
+/* --- CONFIG SECTION (BOTTOM) --- */
+.config-section {
+    margin-top: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 20px;
+}
+
+.config-toggle-btn {
+    background: rgba(255, 255, 255, 0.05);
+    color: #8fa2b6;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 14px;
+    transition: 0.3s;
+}
+.config-toggle-btn:hover { background: rgba(255, 255, 255, 0.1); color: white; }
+
+.config-panel {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    background: #151521;
+    padding: 25px;
+    border-radius: 12px;
+    margin-top: 15px;
+    border: 1px solid rgba(54, 153, 255, 0.2);
+}
+
+.input-group label { display: block; font-size: 12px; color: #8fa2b6; margin-bottom: 8px; }
+.input-group input {
+    width: 100%; background: #1e1e2d; border: 1px solid rgba(255, 255, 255, 0.1);
+    color: white; padding: 10px; border-radius: 6px; font-size: 14px;
+}
+.input-group small { display: block; font-size: 10px; color: #555; margin-top: 5px; }
+
+.save-btn {
+    grid-column: span 2;
+    background: #3699ff; color: white; border: none; padding: 12px;
+    border-radius: 8px; cursor: pointer; font-weight: 600; margin-top: 10px;
+}
+.save-btn:hover { background: #2b7ac9; }
+
+/* Mobile */
+@media (max-width: 768px) {
+    .vh-hero-split { grid-template-columns: 1fr; }
+    .vh-stats-grid { grid-template-columns: repeat(2, 1fr); }
+    .config-panel { grid-template-columns: 1fr; }
+    .save-btn { grid-column: span 1; }
+}

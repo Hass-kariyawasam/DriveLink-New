@@ -1,0 +1,234 @@
+/* tripreport.css - මේවා අලුතින් add කරන්න */
+
+/* Header Right Controls */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* View Mode Toggle */
+.view-mode-toggle {
+    display: flex;
+    background: rgba(30, 30, 45, 0.8);
+    border-radius: 10px;
+    padding: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.toggle-btn {
+    background: transparent;
+    border: none;
+    color: #8fa2b6;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.toggle-btn:hover {
+    color: white;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.toggle-btn.active {
+    background: linear-gradient(135deg, #3699ff, #2b7ac9);
+    color: white;
+    box-shadow: 0 2px 8px rgba(54, 153, 255, 0.3);
+}
+
+/* Date Filter */
+.date-filter {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.filter-select {
+    background: rgba(30, 30, 45, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+    padding: 8px 35px 8px 12px;
+    border-radius: 8px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.3s;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%238fa2b6' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+}
+
+.filter-select:hover {
+    border-color: rgba(54, 153, 255, 0.5);
+    background-color: rgba(30, 30, 45, 1);
+}
+
+.filter-select:focus {
+    outline: none;
+    border-color: #3699ff;
+}
+
+.filter-select option {
+    background: #1e1e2d;
+    color: white;
+}
+
+/* Info Banner */
+.info-banner {
+    background: linear-gradient(135deg, rgba(54, 153, 255, 0.15), rgba(54, 153, 255, 0.05));
+    border: 1px solid rgba(54, 153, 255, 0.3);
+    border-radius: 12px;
+    padding: 12px 20px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #3699ff;
+    font-size: 13px;
+}
+
+.info-banner i {
+    font-size: 16px;
+}
+
+/* Recent Trip Highlight */
+.trip-card-modern.recent-trip {
+    border: 1px solid rgba(54, 153, 255, 0.3);
+    background: linear-gradient(135deg, rgba(54, 153, 255, 0.05), rgba(30, 30, 45, 1));
+}
+
+.trip-card-modern.recent-trip::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(180deg, #3699ff, #2b7ac9);
+    border-radius: 16px 0 0 16px;
+}
+
+.recent-badge {
+    color: #ffa800;
+    font-size: 14px;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
+}
+
+/* Show More Button */
+.btn-show-more {
+    background: linear-gradient(135deg, rgba(54, 153, 255, 0.2), rgba(54, 153, 255, 0.1));
+    border: 1px solid rgba(54, 153, 255, 0.3);
+    color: #3699ff;
+    padding: 12px 30px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s;
+}
+
+.btn-show-more:hover {
+    background: linear-gradient(135deg, rgba(54, 153, 255, 0.3), rgba(54, 153, 255, 0.15));
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(54, 153, 255, 0.3);
+}
+
+.btn-show-more i {
+    font-size: 12px;
+}
+
+/* Primary Button for Empty State */
+.btn-primary {
+    background: linear-gradient(135deg, #3699ff, #2b7ac9);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(54, 153, 255, 0.4);
+}
+
+/* Enhanced Trip Card Position */
+.trip-card-modern {
+    position: relative;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .header-right {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .view-mode-toggle,
+    .date-filter {
+        width: 100%;
+    }
+
+    .toggle-btn {
+        flex: 1;
+        justify-content: center;
+    }
+
+    .filter-select {
+        width: 100%;
+    }
+
+    .info-banner {
+        font-size: 12px;
+        padding: 10px 15px;
+    }
+
+    .btn-show-more {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* Dark scrollbar for select dropdown */
+.filter-select::-webkit-scrollbar {
+    width: 8px;
+}
+
+.filter-select::-webkit-scrollbar-track {
+    background: #1e1e2d;
+}
+
+.filter-select::-webkit-scrollbar-thumb {
+    background: #3699ff;
+    border-radius: 4px;
+}
+
+.filter-select::-webkit-scrollbar-thumb:hover {
+    background: #2b7ac9;
+}
